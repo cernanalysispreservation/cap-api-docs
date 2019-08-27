@@ -1,0 +1,6 @@
+description: Unauthorized
+content:
+  application/json:
+    examples:
+      NotAuhtorizedResponse:
+        $ref: '#/components/examples/NotAuhtorizedResponse'

@@ -1,0 +1,52 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+get:
+  tags:
+    - Deposits
+  summary: Get deposit files
+  description: |
+    Retrieve all files that are associated with the draft record
+  responses:
+    '200':
+      description: List of files
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/FileResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
+post:
+  tags:
+    - Deposits
+  summary: Upload local files
+  description: |
+    Retrieve a draft records by the `deposit_id`
+    > You need to have at least 'read' access
+  operationId: filesDeposit
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

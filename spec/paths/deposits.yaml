@@ -1,0 +1,137 @@
+post:
+  summary: Create a new draft
+  description: >
+    To create a new draft you need to pass a correct analysis type (`$ana_type`)
+    OR a correct JSON Schema.
+
+
+    > JSON Schemas and analysis types (`$ana_type`) depend on the access rights
+    you have and mainly\
+
+    correspond to the CERN collaboration you are part of (***ALICE, ATLAS, CMS,
+    LHCb***).\
+
+    To get the list of available schemas you can call the 
+  tags:
+    - Deposits
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Deposit'
+        examples:
+          simple:
+            value:
+              $ana_type: <an accesible analysis type>
+          simple_with_schema:
+            value:
+              $schema: <URI of accesible JSON schema>
+          advanced:
+            value:
+              $ana_type: <an accesible analysis type>
+              analysis_title: This is a title that describes my analysis
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          examples:
+            depositCreated:
+              $ref: '#/components/examples/depositResponse'
+    '400':
+      description: Validation error
+      content:
+        application/json:
+          examples:
+            noAnatypeNoSchema:
+              $ref: '#/components/examples/noAnatypeNoSchema'
+            validationError:
+              $ref: '#/components/examples/validationError'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
+get:
+  summary: List all deposits/drafts
+  description: >-
+    List all deposits for the currently authenticated user. At least `read`
+    access is needed to query a record
+  tags:
+    - Deposits
+  parameters:
+    - $ref: '#/components/parameters/query'
+    - $ref: '#/components/parameters/status'
+    - $ref: '#/components/parameters/sort'
+    - $ref: '#/components/parameters/page'
+    - $ref: '#/components/parameters/size'
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              aggregations:
+                type: object
+                description: Aggregations of returned results
+              hits:
+                type: object
+                properties:
+                  hits:
+                    $ref: '#/components/schemas/Record'
+                  total:
+                    type: number
+                    description: Total number of results
+              links:
+                type: object
+                description: Links related with the deposits results (ex. prev/next page)
+          example:
+            aggregations: {}
+            hits:
+              hits:
+                - can_admin: true
+                  can_edit: true
+                  created: '2018-11-05T09:16:31.496137+00:00'
+                  id: CAP.ALICE.FPEE.8XTW
+                  links:
+                    self: >-
+                      https://analysispreservation.cern.ch/records/CAP.ALICE.FPEE.8XTW
+                  metadata: {}
+                  published:
+                    revision_id: 0
+                    type: recid
+                    value: CAP.ALICE.FPEE.8XTW
+                  revision: 0
+                  schema: >-
+                    https://analysispreservation.cern.ch/schemas/records/alice-analysis-v0.0.1.json
+                  status: published
+                  updated: '2018-11-05T09:16:31.496146+00:00'
+                - {}
+                - {}
+              total: 130
+            links:
+              next: >-
+                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=3&size=10
+              prev: >-
+                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=1&size=10
+              self: >-
+                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=2&size=10
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

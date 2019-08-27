@@ -1,0 +1,5 @@
+in: query
+name: size
+schema:
+  type: integer
+description: Number of results to return per page.

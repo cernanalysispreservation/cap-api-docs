@@ -1,62 +1,80 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Example.com
-  termsOfService: 'https://example.com/terms/'
+  title: CERN Analysis Preservation REST API
+  termsOfService: 'https://analysispreservation.cern.ch/terms/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
+    email: analysis-preservation-support@cern.ch
+    url: 'https://analysispreservation.cern.ch/about'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://apis.guru/openapi-template/logo.png'
+    url: 'https://avatars0.githubusercontent.com/u/11990854?s=200&v=4'
   description: >
-    This is an **example** API to demonstrate features of OpenAPI specification
+    CERN Analysis Preservation offers a REST API to access the service
+    independently from the web interface. If you want to automate specific tasks
+    or create your own data interface, you can use the API to do so
+
 
     # Introduction
 
-    This specification is intended to to be a good starting point for describing
-    your API in 
-
-    [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
-
-    It also demonstrates features of
-    [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
-    tool and 
-
-    [ReDoc](https://github.com/Rebilly/ReDoc) documentation engine. So beyond
-    the standard OpenAPI syntax we use a few 
-
-    [vendor
-    extensions](https://github.com/Rebilly/ReDoc/blob/master/docs/redoc-vendor-extensions.md).
+    The CAP API is built on HTTP. Our API is RESTful. It has predictable
+    resource URLs. It returns HTTP response codes to indicate errors. It also
+    accepts and returns JSON in the HTTP body. You can use your favorite
+    HTTP/REST library for your programming language to use CAP's API, or you can
+    use one of our SDKs (CLI clients) (currently available in Python).
 
 
-    # OpenAPI Specification
+    We have other APIs that are also available. Every action from our app is
+    supported by an API which is documented and available for use so that you
+    may automate any workflows necessary. This document contains the most
+    commonly integrated resources.
 
-    The goal of The OpenAPI Specification is to define a standard,
-    language-agnostic interface to REST APIs which
 
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
+    # Authentication
 
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
+    If you want to gain access to CERN Analysis Preservation from your console
+    or any external means other
 
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
+    than the web portal you will need an access token to authenticate with the
+    portal. You can create
 
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
+    multiple tokens for different services.
+
+
+    CAP offers the following forms of authentication:
+      - API Key - `access_token`
+
+    <!-- ReDoc-Inject: <security-definitions> -->
 externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+  description: Click here if you are looking for our developement documentation.
+  url: 'https://cernanalysispreservation.readthedocs.io'
 tags:
-  - name: Echo
-    description: Example echo operations
+  - name: Deposits
+    description: The Deposit resource is used for uploading and editing records on CAP
+  - name: Records
+    description: >
+      The Record resource is used for fetching and searching published records
+      on CAP. Create deposit
+  - name: Files
+    description: >
+      The Files resource is used for uploading files and attach them to
+      records/deposits
+
+      The following type of upload are possible:
+        * Local files
+        * Git repos
+        * URL linked files
   - name: User
     description: Operations about user
+  - name: Services
+    description: Operations about services
+  - name: Schemas
+    description: Operations about schemas
+security:
+  - Access Token: []
 servers:
-  - url: 'http://example.com/api/v1'
-  - url: 'https://example.com/api/v1'
+  - url: 'http://localhost:5000'
+  - url: 'https://analysispreservation.cern.ch/api'
+  - url: 'https://analysispreservation-dev.cern.ch/api'

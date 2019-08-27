@@ -1,0 +1,15 @@
+type: object
+properties:
+  action:
+    description: Permission action
+    type: string
+    example: deposit-read
+  identity:
+    $ref: '#/components/schemas/Email'
+  type:
+    description: Permission action
+    type: string
+    example: user
+    enum:
+      - user
+      - egroup

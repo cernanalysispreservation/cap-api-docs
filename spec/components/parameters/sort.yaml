@@ -1,0 +1,7 @@
+in: query
+name: sort
+schema:
+  type: string
+description: >-
+  Sort order (`bestmatch` or `mostrecent`). Prefix with minus to change form
+  ascending to descending (e.g. `-mostrecent`).

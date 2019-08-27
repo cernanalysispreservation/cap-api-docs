@@ -1,0 +1,4 @@
+summary: Payload doesn't validate against specified schema
+value:
+  status: 400
+  message: You have to specify either $schema or $ana_type

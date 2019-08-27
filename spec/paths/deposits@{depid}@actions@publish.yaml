@@ -1,0 +1,35 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+post:
+  tags:
+    - Deposits
+  summary: Publish to collaboration
+  description: >
+    Create a new version of the document and make it public to your
+    collaboration
+  operationId: publishDeposit
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

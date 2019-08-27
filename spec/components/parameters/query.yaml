@@ -1,0 +1,5 @@
+in: query
+name: q
+schema:
+  type: string
+description: Search query (using Elasticsearch query string syntax).

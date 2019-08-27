@@ -1,0 +1,37 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+post:
+  tags:
+    - Deposits
+  summary: Edit published deposit
+  description: >
+    To be able to **edit** an already `published` deposit, you should first
+    change it's status to `draft`. Only then you can
+    [update](#operation/depositUpdate) or [patch](#operation/depositPatch)
+    depending on your needs 
+  operationId: editDeposit
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

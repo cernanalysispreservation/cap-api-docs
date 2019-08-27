@@ -1,0 +1,167 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+get:
+  tags:
+    - Deposits
+  summary: Get deposit by ID
+  description: |
+    Retrieve a deposit/draft resource by the `deposit_id`
+    > You need to have at least 'read' access
+  operationId: get_deposit
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
+put:
+  tags:
+    - Deposits
+  summary: Update a deposit
+  description: Update a deposit/draft resource
+  operationId: depositUpdate
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DepositMetadata'
+        example:
+          title: My new title
+          abstract: Already commited/saved abstract desciption
+    description: |
+      A JSON object that will replace the `metadata` field of the resource
+      > It should validate against the specified `$schema` of the resource
+    required: true
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: Hello world!
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
+patch:
+  tags:
+    - Deposits
+  summary: Patch a deposit
+  description: >
+    Update a deposit/draft resource with a [JSON Patch](http://jsonpatch.com/)
+
+
+    ### What is JSON Patch?
+
+
+    JSON Patch is a format for describing changes to a [JSON](http://json.com)
+    document. It can be used to avoid sending a whole document when only a part
+    has changed. When used in combination with the [HTTP PATCH
+    method](http://tools.ietf.org/html/rfc5789), it allows partial updates for
+    HTTP APIs in a standards compliant way.
+
+
+    The patch documents are themselves JSON documents.
+
+
+    JSON Patch is specified in [RFC 6902](http://tools.ietf.org/html/rfc6902)
+    from the IETF.
+
+
+    ### Simple example
+
+
+    ##### The original document
+
+
+    ```javascript
+        {
+          "baz": "qux",
+          "foo": "bar"
+        }
+    ```
+
+    ##### The patch
+
+
+    ```javascript
+        [
+          { "op": "replace", "path": "/baz", "value": "boo" },
+          { "op": "add", "path": "/hello", "value": ["world"] },
+          { "op": "remove", "path": "/foo" }
+        ]
+    ```
+
+    ##### The result
+
+
+    ```javascript
+        {
+          "baz": "boo",
+          "hello": ["world"]
+        }
+    ```
+  operationId: depositPatch
+  requestBody:
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '#/components/schemas/DepositMetadata'
+        example:
+          op: replace
+          path: /general_title
+          value: Gen Test
+    description: >
+      A [JSON Patch](http://jsonpatch.com/) object that will update/patch on top
+      of the `metadata` of the resource
+
+      > It should validate against the specified `$schema` of the resource
+    required: true
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: string
+          examples:
+            response:
+              value: Hello world!
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

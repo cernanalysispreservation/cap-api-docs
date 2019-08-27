@@ -1,0 +1,38 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+post:
+  tags:
+    - Deposits
+  summary: Upload files/data
+  description: |
+    Upload files/data to your analysis
+    The following type of uploads are possible:
+      * Local files
+      * Git repos
+      * URL linked files
+  operationId: uploadDeposit
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

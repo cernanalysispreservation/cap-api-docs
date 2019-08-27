@@ -1,0 +1,25 @@
+value:
+  can_admin: true
+  can_edit: true
+  created: '2018-11-01T15:40:46.657390+00:00'
+  id: d12345eab0594059a53eb370f8a6c13d
+  links:
+    discard: >-
+      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/discard
+    edit: >-
+      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/edit
+    files: >-
+      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/files
+    html: >-
+      https://analysispreservation.cern.ch/drafts/d9c164eab0594059a53eb370f8a6c13d
+    publish: >-
+      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/publish
+    self: >-
+      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d
+  metadata:
+    $ref: '#/components/examples/depositMetadataResponse'
+  revision: 8
+  schema: >-
+    https://analysispreservation.cern.ch/schemas/deposits/records/cms-analysis-v0.0.1.json
+  status: draft
+  updated: '2019-05-29T12:48:30.656157+00:00'

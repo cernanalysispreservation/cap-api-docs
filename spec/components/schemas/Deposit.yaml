@@ -1,0 +1,27 @@
+description: Record resource
+type: object
+oneOf:
+  - title: Empty draft with `ana_type`
+    type: object
+    properties:
+      $ana_type:
+        title: Analysis Type
+        description: Analysis Type (schema type) of record to be create
+        type: string
+    required:
+      - $ana_type
+  - title: Empty draft with `$schema`
+    properties:
+      $schema:
+        $ref: '#/components/schemas/Schema'
+    required:
+      - $schema
+  - title: Deposit with some content
+    type: object
+    properties:
+      $schema:
+        $ref: '#/components/schemas/Schema'
+      analysis_title:
+        type: string
+      abstract:
+        type: string
