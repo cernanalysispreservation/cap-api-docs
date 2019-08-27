@@ -10,7 +10,8 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://avatars0.githubusercontent.com/u/11990854?s=200&v=4'
+    url: >-
+      https://github.com/cernanalysispreservation/cap-api-docs/raw/master/web/CAP_API_docs.png
   description: >
     CERN Analysis Preservation offers a REST API to access the service
     independently from the web interface. If you want to automate specific tasks
