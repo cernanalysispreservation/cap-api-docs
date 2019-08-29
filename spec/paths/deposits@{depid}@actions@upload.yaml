@@ -6,16 +6,33 @@ parameters:
       type: string
       format: uuid
     required: true
+  - name: type
+    in: query
+    description: Url type (repo/url)
+    schema:
+      type: string
+      enum: [url, repo]
+    required: true
+  - name: url
+    in: query
+    description: Url of repo/file to upload
+    schema:
+      type: string
+      format: uuid
+    required: true
 post:
   tags:
     - Deposits
   summary: Upload files/data
   description: |
-    Upload files/data to your analysis
+    Upload files/data to your analysis, in a specified deposit record.
     The following type of uploads are possible:
       * Local files
       * Git repos
       * URL linked files
+
+    The API differentiates between whole repos (saved as .tar) and single files
+    from repos, so the parameter "type" is necessary.
   operationId: uploadDeposit
   responses:
     '200':

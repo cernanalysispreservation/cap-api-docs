@@ -19,3 +19,6 @@ get:
         text/csv:
           schema:
             type: string
+          examples:
+            response:
+              value: Pong!

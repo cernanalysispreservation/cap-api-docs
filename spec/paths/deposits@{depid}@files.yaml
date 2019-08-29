@@ -21,6 +21,8 @@ get:
             type: array
             items:
               $ref: '#/components/schemas/FileResponse'
+          example:
+            $ref: '#/components/examples/fileResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'
 post:

@@ -16,6 +16,9 @@ get:
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:
-        text/csv:
+        application/json:
           schema:
             type: string
+          examples:
+            response:
+              value: {'message': 'OK'}

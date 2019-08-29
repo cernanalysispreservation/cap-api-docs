@@ -1,25 +1,52 @@
 value:
-  can_admin: true
-  can_edit: true
-  created: '2018-11-01T15:40:46.657390+00:00'
-  id: d12345eab0594059a53eb370f8a6c13d
-  links:
-    discard: >-
-      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/discard
-    edit: >-
-      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/edit
-    files: >-
-      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/files
-    html: >-
-      https://analysispreservation.cern.ch/drafts/d9c164eab0594059a53eb370f8a6c13d
-    publish: >-
-      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d/actions/publish
-    self: >-
-      https://analysispreservation.cern.ch/deposits/d9c164eab0594059a53eb370f8a6c13d
-  metadata:
-    $ref: '#/components/examples/depositMetadataResponse'
-  revision: 8
+  access:
+    - action: deposit-read
+      identity: cms_user@cern.ch
+      type: user
+    - action: deposit-update
+      identity: cms_user@cern.ch
+      type: user
+    - action: deposit-admin
+      identity: cms_user@cern.ch
+      type: user
+  created: 2019-08-29T08:36:37.552Z
+  files:
+    - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
+      checksum: None
+      key: test-user_test-repo_test-branch.tar.gz
+      size: 0
+      source_url: 'https://gitlab.cern.ch/test-user/test-repo/tree/test-branch'
+      version_id: ffe05069-8f2a-49da-8617-957b05614723
+  id: 055c24bad4ee4d6fa44a9432b49fe77e
+  links: {}
+  metadata: null
+  $schema: >-
+    https://analysispreservation.cern.ch/schemas/deposits/records/test-analysis-v0.0.1.json
+  _deposit:
+    created_by: 1
+    id": 055c24bad4ee4d6fa44a9432b49fe77e
+    owners:
+      - cms_user@cern.ch
+    pid:
+      revision_id: 0
+      type: recid
+      value: CAP.xxx.xxx.xxxx
+    status: published
+  experiment: None
+  _files:
+    - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
+      checksum: None
+      key: test-user_test-repo_test-branch.tar.gz
+      size: 0
+      source_url: 'https://gitlab.cern.ch/test-user/test-repo/tree/test-branch'
+      version_id: ffe05069-8f2a-49da-8617-957b05614723
+  control_number: CAP.xxx.xxx.xxxx
+  published: null
+  revision_id: 0
+  type: recid
+  value: CAP.xxx.xxx.xxxx
+  revision: 2
   schema: >-
-    https://analysispreservation.cern.ch/schemas/deposits/records/cms-analysis-v0.0.1.json
-  status: draft
-  updated: '2019-05-29T12:48:30.656157+00:00'
+    https://analysispreservation.cern.ch/schemas/deposits/records/test-analysis-v0.0.1.json
+  status: published
+  updated: 2019-08-29T08:36:38.114Z
