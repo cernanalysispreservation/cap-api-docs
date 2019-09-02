@@ -1,0 +1,28 @@
+parameters:
+  - name: schema_path
+    in: path
+    description: Name/Path for the JSON Schema resource
+    schema:
+      type: string
+    required: true
+get:
+  summary: Get a JSON Schema
+  tags:
+    - Schemas
+  responses:
+    '200':
+      description: OK
+      headers:
+        RateLimit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+          examples:
+            response:
+              value:
+                title: Hello world!
+                abstract: This is my abstract

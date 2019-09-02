@@ -1,0 +1,65 @@
+title: JSONSchema resource schema
+description: Structure of the JSON schema resource in CAP
+type: object
+properties:
+  name:
+    title: Unique name for your schema
+    description: Unique name for your schema
+    type: string
+    example: cms-analysis
+  version:
+    title: Version
+    description: Unique version for the schema. Must be unique and in a ascending order
+    type: string
+    example: 1.2.3
+  fullname:
+    title: Display name for schema
+    description: Full name for schema. This is what is mostly displayed to users
+    type: string
+    example: CMS Schema 1.2.3
+  is_indexed:
+    title: Flag for ES indexing
+    description: Is a deposit schema or not - Flag for ES indexing
+    type: boolean
+    example: true
+  use_deposit_as_record:
+    title: Flag for deposit and record schema similarities
+    description: If flag is `true` the records schema is similar to the deposit schema
+    type: boolean
+    example: false
+  deposit_schema:
+    title: Deposit schema
+    type: object
+    example:
+      title: deposit_schema
+  deposit_options:
+    title: Deposit options
+    type: object
+    example:
+      title: deposit_options
+  record_schema:
+    title: Record schema
+    type: object
+    example:
+      title: record_schema
+  record_options:
+    title: Record options
+    type: object
+    example:
+      title: record_options
+  record_mapping:
+    title: Record schema ES mappings
+    type: object
+    example:
+      doc:
+        properties:
+          title:
+            type: text
+  deposit_mapping:
+    title: Record schema ES mappings
+    type: object
+    example:
+      doc:
+        properties:
+          keyword:
+            type: keyword

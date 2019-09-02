@@ -1,4 +1,5 @@
-post:
+get:
+  summary: Get list of services
   tags:
     - Services
   responses:
@@ -6,10 +7,7 @@ post:
       description: OK
       headers:
         X-Rate-Limit:
-          description: calls per hour allowed by the user
-          schema:
-            type: integer
-            format: int32
+          $ref: '#/components/headers/RateLimit'
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:
@@ -19,9 +17,3 @@ post:
           examples:
             response:
               value: Hello world!
-        application/xml:
-          schema:
-            type: string
-        text/csv:
-          schema:
-            type: string

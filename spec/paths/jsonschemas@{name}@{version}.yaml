@@ -1,0 +1,91 @@
+parameters:
+  - name: name
+    in: path
+    description: Analysis/Resource type name
+    schema:
+      type: string
+    required: true
+  - name: version
+    in: path
+    description: Analysis/Resource type version
+    schema:
+      type: string
+    required: true
+get:
+  tags:
+    - JSON Schemas
+  summary: Get schema by name and version
+  description: Retrieve the latest JSON Schemas for the specified `name`
+  operationId: getSchemaByNameAndVersion
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JSONSchema'
+          examples:
+            response:
+              $ref: '#/components/schemas/JSONSchema'
+put:
+  tags:
+    - JSON Schemas
+  summary: Update schemas for a specific name and version
+  description: >
+    Create a new JSON schemas. Add your customized schemas for records and
+    deposits, your corresponding UI form options and ES search mapping for
+    better indexing
+  operationId: updateSchemaByNameAndVersion
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DepositMetadata'
+        example:
+          title: My new title
+          abstract: Already commited/saved abstract desciption
+    description: |
+      A JSON object that will replace the `metadata` field of the resource
+      > It should validate against the specified `$schema` of the resource
+    required: true
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JSONSchema'
+          examples:
+            response:
+              $ref: '#/components/schemas/JSONSchema'
+delete:
+  tags:
+    - JSON Schemas
+  summary: Remove schemas for a specific name and version
+  description: Remove schemas for a specific name and version
+  operationId: deleteSchemaByNameAndVersion
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JSONSchema'
+          examples:
+            response:
+              $ref: '#/components/schemas/JSONSchema'

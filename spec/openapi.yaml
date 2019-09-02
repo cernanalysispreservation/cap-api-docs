@@ -67,12 +67,16 @@ tags:
         * Local files
         * Git repos
         * URL linked files
-  - name: User
-    description: Operations about user
-  - name: Services
-    description: Operations about services
+  - name: Search
+    description: Search functionality
   - name: Schemas
     description: Operations about schemas
+  - name: JSON Schemas
+    description: Operations about schemas
+  - name: Services
+    description: Operations about services
+  - name: User
+    description: Operations about user
 security:
   - Access Token: []
 servers:

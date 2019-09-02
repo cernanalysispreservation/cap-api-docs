@@ -1,4 +1,13 @@
-post:
+parameters:
+  - name: bucket_id
+    in: path
+    description: Bucket ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+get:
+  summary: Get bucket resource by ID
   tags:
     - Files
   responses:
@@ -6,10 +15,7 @@ post:
       description: OK
       headers:
         X-Rate-Limit:
-          description: calls per hour allowed by the user
-          schema:
-            type: integer
-            format: int32
+          $ref: '#/components/headers/RateLimit'
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:

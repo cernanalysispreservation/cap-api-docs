@@ -1,0 +1,4 @@
+description: calls per hour allowed by the user
+schema:
+  type: integer
+  format: int32

@@ -35,10 +35,7 @@ post:
       description: OK
       headers:
         X-Rate-Limit:
-          description: calls per hour allowed by the user
-          schema:
-            type: integer
-            format: int32
+          $ref: '#/components/headers/RateLimit'
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:
@@ -77,10 +74,7 @@ get:
       description: OK
       headers:
         X-Rate-Limit:
-          description: calls per hour allowed by the user
-          schema:
-            type: integer
-            format: int32
+          $ref: '#/components/headers/RateLimit'
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:

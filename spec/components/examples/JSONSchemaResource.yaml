@@ -1,0 +1,18 @@
+value:
+  deposit_mapping:
+    <index name/alias>: {}
+  deposit_options: {}
+  deposit_schema: {}
+  fullname: MySchema Analysis
+  is_indexed: true
+  links:
+    deposit: >-
+      https://analysispreservation.cern.ch/schemas/deposits/records/myschema-v0.0.1.json
+    record: 'https://analysispreservation.cern.ch/schemas/records/myschema-v0.0.1.json'
+    self: 'http://localhost:5000/api/jsonschemas/myschema/0.0.1'
+  name: myschema
+  record_mapping: {}
+  record_options: {}
+  record_schema: {}
+  use_deposit_as_record: true
+  version: 0.0.1

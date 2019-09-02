@@ -1,0 +1,28 @@
+parameters:
+  - name: name
+    in: path
+    description: Analysis/Resource type name
+    schema:
+      type: string
+    required: true
+get:
+  tags:
+    - JSON Schemas
+  summary: Get latest version by name
+  description: Retrieve the latest JSON Schemas for the specified `name`
+  operationId: getLatestByName
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JSONSchema'
+          examples:
+            response:
+              $ref: '#/components/schemas/JSONSchema'

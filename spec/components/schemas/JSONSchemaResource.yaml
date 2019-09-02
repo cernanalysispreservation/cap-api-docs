@@ -1,0 +1,31 @@
+title: JSON Schema resource structure
+description: >
+  JSON Schema resource structure. It contains information about a document type
+  - deposit schema, record schema, display form options and ES mappings
+type: object
+properties:
+  name:
+    type: string
+    title: Name of the document type
+  version:
+    type: string
+    title: Version of document type
+  fullname:
+    type: string
+    title: Fullname / display name
+  is_indexed:
+    type: boolean
+  use_deposit_as_record:
+    type: boolean
+  deposit_schema:
+    type: object
+  deposit_options:
+    type: object
+  deposit_mapping:
+    type: object
+  record_schema:
+    type: object
+  record_options:
+    type: object
+  record_mapping:
+    type: object
