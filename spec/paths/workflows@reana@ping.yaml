@@ -1,9 +1,9 @@
 get:
   tags:
-    - Health Check
-  summary: Ping Files
-  description: Check CAP Files API availability.
-  operationId: ping_files
+    - Workflows
+  summary: Ping the REANA server
+  description: Check the REANA server availability.
+  operationId: reana_ping
   responses:
     '200':
       description: OK
@@ -13,13 +13,10 @@ get:
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:
-        application/json:
+        text/plain:
           schema:
             type: string
-          examples:
-            response:
-              value:
-                message: OK
+            example: OK
     '400':
       description: Exception
       headers:
@@ -30,4 +27,11 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error_message'
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: An exception has occured on the server.

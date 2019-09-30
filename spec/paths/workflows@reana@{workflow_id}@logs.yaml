@@ -1,0 +1,50 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+get:
+  tags:
+    - Workflows
+  summary: Get the workflow logs
+  description: Retrieve the logs for the specified workflow.
+  operationId: reana_workflow_logs
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              workflow_id:
+                type: string
+              workflow_name:
+                type: string
+              logs:
+                type: object
+                properties:
+                  engine_specific:
+                    type: object
+                  job_logs:
+                    type: string
+                  workflow_logs:
+                    type: string
+          examples:
+            response:
+              value:
+                logs:
+                  engine_specific: null
+                  job_logs: {}
+                  workflow_logs: ''
+                workflow_id: 81402a40-8e74-4d50-b15b-9107f20a7e97
+                workflow_name: cap_demo.1
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'

@@ -1,0 +1,7 @@
+in: path
+name: workflow_id
+schema:
+  type: string
+  format: uuid
+description: Existing workflow id (in UUID form)
+required: true

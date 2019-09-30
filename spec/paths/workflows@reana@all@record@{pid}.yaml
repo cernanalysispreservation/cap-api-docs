@@ -1,0 +1,67 @@
+parameters:
+  - $ref: '#/components/parameters/pid'
+get:
+  tags:
+    - Workflows
+  summary: Get all the workflows
+  description: Get all the workflows (created and deleted) from the user
+  operationId: reana_workflow_all
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              rec_uuid:
+                type: string
+              current_workflows:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string
+              deleted_workflows:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string
+          examples:
+            response:
+              value:
+                current_workflows:
+                  - id: 124f4f68-9f0c-4941-97df-2f23e3f68221
+                    name: cap_demo.3
+                    status: created
+                  - id: bbf6e63e-ba8b-4c7b-b92c-eed3d46c4616
+                    name: cap_demo.2
+                    status: created
+                deleted_workflows:
+                  - id: a5140d92-65e3-4fb0-a246-dc1f06cc2e13
+                    name: cap_demo.1
+                    status: deleted
+                rec_uuid: 18a6ae5c-3000-44cc-a5bb-7a386a47ab59
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'

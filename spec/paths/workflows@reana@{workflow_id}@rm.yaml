@@ -1,0 +1,56 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+  - $ref: '#/components/parameters/file_path'
+delete:
+  tags:
+    - Workflows
+  summary: Delete files from a workspace
+  description: Delete the selected file from the workspace.
+  operationId: reana_workflow_rm
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              failed:
+                type: object
+              deleted:
+                type: object
+                properties:
+                  name:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+          examples:
+            response:
+              value:
+                deleted:
+                  code/helloworld.py:
+                    size: 2899
+                failed: {}
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: >-
+                  code/helloworld.py did not match any existing file. Aborting
+                  download.

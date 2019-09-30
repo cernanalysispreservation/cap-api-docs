@@ -1,0 +1,82 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+get:
+  tags:
+    - Workflows
+  summary: Clone a REANA workflow
+  description: >-
+    Retrieve the workflow's initialization parameters, in order to create a new
+    run (cloned) of the workflow.
+  operationId: reana_clone_workflow
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              outputs:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      type: string
+              parameters:
+                type: object
+              workflow_json:
+                type: object
+                properties:
+                  steps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        commands:
+                          type: array
+                          items:
+                            type: string
+                        environment:
+                          type: string
+          examples:
+            response:
+              value:
+                name: demo
+                outputs:
+                  files:
+                    - results/results.txt
+                parameters:
+                  files:
+                    - code/helloworld.py
+                  parameters:
+                    helloworld: code/helloworld.py
+                workflow_json:
+                  steps:
+                    - commands:
+                        - 'python "${helloworld}"'
+                      environment: 'python:2.7-slim'
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: >-
+                  An exception has occured while retrieving the original
+                  workflow attributes.

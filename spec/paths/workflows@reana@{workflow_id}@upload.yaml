@@ -1,0 +1,69 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+post:
+  tags:
+    - Workflows
+  summary: Upload files to a workflow
+  description: >-
+    Upload files to an existing workflow. A new path can be chosen when saving
+    the file to the REANA server.
+  operationId: reana_workflow_upload
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            files_to_upload:
+              type: array
+              items:
+                type: object
+                properties:
+                  path:
+                    type: string
+                  new_path:
+                    type: string
+          example:
+            files_to_upload:
+              - path: /reana-demo-helloworld/code/helloworld.py
+                new_path: code/helloworld.py
+              - path: /reana-demo-helloworld/data/names.txt
+                new_path: data/names.txt
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              workflow_id:
+                type: string
+              errors:
+                type: string
+              succesful:
+                type: string
+          examples:
+            response:
+              value:
+                workflow_id: 3ffea660-db89-4a30-9454-44aa9cf1d677
+                errors: []
+                successful:
+                  - >-
+                    /reana-demo-helloworld/code/helloworld.py saved as
+                    code/helloworld.py
+                  - >-
+                    /reana-demo-helloworld/data/names.txt saved as
+                    data/names.txt
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'

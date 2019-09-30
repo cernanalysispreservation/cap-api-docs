@@ -1,0 +1,82 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+get:
+  tags:
+    - Workflows
+  summary: Get the status of a workflow
+  description: 'Retrieve the status of a specific workflow, and update the db.'
+  operationId: reana_workflow_status
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              created:
+                type: string
+              id:
+                type: string
+              logs:
+                type: string
+              name:
+                type: string
+              progress:
+                type: object
+                properties:
+                  current_command:
+                    type: string
+                  current_step_name:
+                    type: string
+                  run_started_at:
+                    type: string
+                  failed:
+                    type: object
+                  finished:
+                    type: object
+                  running:
+                    type: object
+                  total:
+                    type: object
+              status:
+                type: string
+              user:
+                type: string
+          examples:
+            response:
+              value:
+                created: '2019-10-01T11:55:49'
+                id: 3ffea660-db89-4a30-9454-44aa9cf1d677
+                logs: '{}'
+                name: wf_demo.1
+                progress:
+                  current_command: null
+                  current_step_name: null
+                  failed:
+                    job_ids: []
+                    total: 0
+                  finished:
+                    job_ids: []
+                    total: 0
+                  run_started_at: null
+                  running:
+                    job_ids: []
+                    total: 0
+                  total:
+                    job_ids: []
+                    total: 0
+                status: created
+                user: 9ee3a516-7e97-4e50-852f-636c0b881f3a
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'

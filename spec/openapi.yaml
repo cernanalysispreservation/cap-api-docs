@@ -14,23 +14,28 @@ info:
       https://github.com/cernanalysispreservation/cap-api-docs/raw/master/web/CAP_API_docs.png
   description: >
     CERN Analysis Preservation offers a REST API to access the service
-    independently from the web interface. If you want to automate specific tasks
-    or create your own data interface, you can use the API to do so
+    independently from the web interface. This allows users to automate specific
+    tasks or create their own data interface, using simple HTTP calls.
 
 
     # Introduction
 
-    The CAP API is built on HTTP. Our API is RESTful. It has predictable
-    resource URLs. It returns HTTP response codes to indicate errors. It also
-    accepts and returns JSON in the HTTP body. You can use your favorite
-    HTTP/REST library for your programming language to use CAP's API, or you can
-    use one of our SDKs (CLI clients) (currently available in Python).
+    CERN Analysis Preservation provides a RESTful API, built on HTTP. It tries
+    to provide a predictable interface, that includes:
+
+    * resource URLs,
+
+    * HTTP response codes to indicate success/errors, and
+
+    * accepts and returns JSON in the HTTP body.
 
 
-    We have other APIs that are also available. Every action from our app is
-    supported by an API which is documented and available for use so that you
-    may automate any workflows necessary. This document contains the most
-    commonly integrated resources.
+    You can use your favorite HTTP/REST library for your programming language to
+    use CAP's API, or you can use one of our SDKs (CLI clients), currently
+    available in Python. Every action from our app is implemented using REST
+    endpoints, all of which are documented and available, in order to bea easily
+    accessible for automations and integrations into specific workflowsor
+    data-related apps.
 
 
     # Authentication

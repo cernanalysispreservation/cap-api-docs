@@ -1,0 +1,6 @@
+in: path
+name: pid
+schema:
+  type: string
+description: Existing record id (from deposit)
+required: true
