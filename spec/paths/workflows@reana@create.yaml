@@ -1,0 +1,90 @@
+post:
+  tags:
+    - Workflows
+  summary: Create a REANA workflow
+  description: Create a REANA workflow using the provided parameters.
+  operationId: reana_create_workflow
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            pid:
+              type: string
+            pid_type:
+              type: string
+            workflow_name:
+              type: string
+            workflow_engine:
+              type: string
+            workflow_json:
+              type: object
+            parameters:
+              type: object
+            outputs:
+              type: object
+          example:
+            pid: a5140d92-65e3-4fb0-a246-dc1f06cc2e13
+            pid_type: recid
+            workflow_name: demo
+            workflow_engine: serial
+            workflow_json:
+              steps:
+                - environment: 'python:2.7-slim'
+                  commands:
+                    - 'python "${helloworld}"'
+            parameters:
+              files:
+                - code/helloworld.py
+              parameters:
+                helloworld: code/helloworld.py
+            outputs:
+              files:
+                - results/results.txt
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              depid:
+                type: string
+              engine:
+                type: string
+              status:
+                type: string
+              workflow_id:
+                type: string
+              workflow_name:
+                type: string
+          examples:
+            response:
+              value:
+                depid: 28484a36-679e-4274-ba15-9f17abe8e075
+                engine: serial
+                status: created
+                workflow_id: 3ffea660-db89-4a30-9454-44aa9cf1d677
+                workflow_name: wf_demo.1
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: An exception has occured while creating the workflow.

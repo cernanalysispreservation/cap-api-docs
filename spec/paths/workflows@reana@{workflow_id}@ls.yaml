@@ -1,0 +1,67 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+get:
+  tags:
+    - Workflows
+  summary: List files in a workspace
+  description: >-
+    List all the files that belong in a workspace, both user-uploaded and
+    created in the server.
+  operationId: reana_workflow_ls
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              workflow_id:
+                type: string
+              rec_uuid:
+                type: string
+              files:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    last-modified:
+                      type: string
+                    name:
+                      type: string
+                    size:
+                      type: integer
+          examples:
+            response:
+              value:
+                files:
+                  - last-modified: '2019-10-02T11:58:14'
+                    name: code/helloworld.py
+                    size: 2899
+                  - last-modified: '2019-10-02T11:58:15'
+                    name: data/names.txt
+                    size: 20
+                rec_uuid: 18a6ae5c-3000-44cc-a5bb-7a386a47ab59
+                workflow_id: 81402a40-8e74-4d50-b15b-9107f20a7e97
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: >-
+                  File list from workflow 81402a40-8e74-4d50-b15b-9107f20a7e97
+                  could not be retrieved. Aborting listing.

@@ -1,9 +1,12 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+  - $ref: '#/components/parameters/file_path'
 get:
   tags:
-    - Health Check
-  summary: Ping Files
-  description: Check CAP Files API availability.
-  operationId: ping_files
+    - Workflows
+  summary: Download files in a workspace
+  description: Download the selected file from the REANA workspace.
+  operationId: reana_workflow_download
   responses:
     '200':
       description: OK
@@ -15,11 +18,14 @@ get:
       content:
         application/json:
           schema:
-            type: string
+            type: object
+            properties:
+              message:
+                type: string
           examples:
             response:
               value:
-                message: OK
+                message: Files downloaded to /Users/<myuser>/data/names.txt.
     '400':
       description: Exception
       headers:
@@ -31,3 +37,9 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: >-
+                  data/names.txt did not match any existing file. Aborting
+                  download.

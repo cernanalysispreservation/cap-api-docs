@@ -1,0 +1,56 @@
+parameters:
+  - $ref: '#/components/parameters/workflow_id'
+delete:
+  tags:
+    - Workflows
+  summary: Delete a workflow with its workspace
+  description: 'Delete a workflow with its workspace, including all the files saved.'
+  operationId: reana_workflow_delete
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              status:
+                type: string
+              user:
+                type: string
+              workflow_id:
+                type: string
+              workflow_name:
+                type: string
+          examples:
+            response:
+              value:
+                message: Workflow successfully deleted
+                status: stopped
+                user: 9ee3a516-7e97-4e50-852f-636c0b881f3a
+                workflow_id: 81402a40-8e74-4d50-b15b-9107f20a7e97
+                workflow_name: cap_demo.1
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
+          examples:
+            response:
+              value:
+                message: >-
+                  Workflow 81402a40-8e74-4d50-b15b-9107f20a7e97 does not exist.
+                  Aborting deletion.

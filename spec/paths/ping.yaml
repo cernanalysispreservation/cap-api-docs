@@ -1,8 +1,8 @@
 get:
   tags:
     - Health Check
-  summary: Ping
-  description: Check server availability
+  summary: Ping Server
+  description: Check CAP server availability.
   operationId: ping
   responses:
     '200':
@@ -13,9 +13,18 @@ get:
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
       content:
-        text/csv:
-          schema:
-            type: string
+        application/json:
           examples:
             response:
               value: Pong!
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'

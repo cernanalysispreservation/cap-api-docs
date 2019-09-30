@@ -2,7 +2,7 @@ get:
   tags:
     - Health Check
   summary: Ping DB
-  description: Check database availability
+  description: Check CAP database availability.
   operationId: pingdb
   responses:
     '200':
@@ -18,4 +18,16 @@ get:
             type: string
           examples:
             response:
-              value: {'message': 'OK'}
+              value:
+                message: OK
+    '400':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_message'
