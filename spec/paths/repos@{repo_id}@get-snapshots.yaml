@@ -1,0 +1,42 @@
+parameters:
+  - $ref: '#/components/parameters/repo_id'
+post:
+  tags:
+    - Webhooks
+  summary: Get a list of the available snapshots of the repo.
+  description: >-
+    If a repo is connected through a webhook to GitHub/GitLab, CAP will keep an
+    archiove of the previous changes, so that the researcher can download a
+    specific commit/release.
+  operationId: repo_webhook_get_snapshots
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                event:
+                  type: string
+                tag:
+                  type: string
+                branch:
+                  type: string
+                url:
+                  type: string
+          examples:
+            response:
+              value:
+                - event: push
+                  tag: 0.1
+                  branch: master
+                  url: >-
+                    https://codeload.github.com/cap/test-repo/legacy.tar.gz/c43red11

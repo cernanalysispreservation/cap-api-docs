@@ -1,0 +1,45 @@
+parameters:
+  - $ref: '#/components/parameters/repo_id'
+post:
+  tags:
+    - Webhooks
+  summary: Disable a webhook
+  description: Disable a repository webhook.
+  operationId: repo_webhook_disable
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: '(Host: Github) Hook 1127877 was deleted from repo 113454.'
+    '500':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: Webhooks integration failure.

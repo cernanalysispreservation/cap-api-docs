@@ -2,5 +2,5 @@ in: query
 name: file_path
 schema:
   type: string
-description: The full path (on the server) of the file
+description: The full path (on the server) of the file.
 required: true

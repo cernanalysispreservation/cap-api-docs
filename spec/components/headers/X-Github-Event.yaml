@@ -1,0 +1,3 @@
+description: event type from GitLab webhooks
+schema:
+  type: string
