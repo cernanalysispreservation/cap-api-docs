@@ -1,0 +1,6 @@
+in: path
+name: repo_id
+schema:
+  type: string
+description: Repository id (from GitHub/GitLab).
+required: true

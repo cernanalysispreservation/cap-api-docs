@@ -1,0 +1,3 @@
+description: event type from GitHub webhooks
+schema:
+  type: string

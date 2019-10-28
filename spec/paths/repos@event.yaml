@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Webhooks
+  summary: Listen for a webhook event.
+  description: >-
+    Listen and verify that an event including repo-related payload, comes from
+    GitHub/GitLab.
+  operationId: repo_event
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+        X-Gitlab-Event:
+          $ref: '#/components/headers/X-Gitlab-Event'
+        X-Github-Event:
+          $ref: '#/components/headers/X-Github-Event'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: Snapshot of repo 113545 was saved successfully.
+    '401':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+        X-Gitlab-Event:
+          $ref: '#/components/headers/X-Gitlab-Event'
+        X-Github-Event:
+          $ref: '#/components/headers/X-Github-Event'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: >-
+                  Could not verify the event from repo 113545. No changes were
+                  made.

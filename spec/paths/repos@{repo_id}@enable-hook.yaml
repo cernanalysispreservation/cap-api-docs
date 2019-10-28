@@ -1,0 +1,47 @@
+parameters:
+  - $ref: '#/components/parameters/repo_id'
+post:
+  tags:
+    - Webhooks
+  summary: Enable a webhook
+  description: >-
+    Enable a repository webhook, allowing communication between the remore
+    repository and its local copy.
+  operationId: repo_webhook_enable
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: '(Host: Github) Hook 1127877 was created in repo 113454.'
+    '500':
+      description: Exception
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          examples:
+            response:
+              value:
+                message: Webhooks integration failure.
