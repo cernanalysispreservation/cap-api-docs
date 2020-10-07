@@ -14,7 +14,7 @@ post:
     To be able to **edit** an already `published` deposit, you should first
     change it's status to `draft`. Only then you can
     [update](#operation/depositUpdate) or [patch](#operation/depositPatch)
-    depending on your needs 
+    depending on your needs
   operationId: editDeposit
   responses:
     '200':
@@ -31,7 +31,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/DepositResponse'
-          example:
-            $ref: '#/components/examples/depositResponse'
+          examples:
+            editDeposit:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

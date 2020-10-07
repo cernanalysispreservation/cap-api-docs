@@ -32,6 +32,8 @@ get:
           examples:
             response:
               $ref: '#/components/schemas/JSONSchema'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
 put:
   tags:
     - JSON Schemas

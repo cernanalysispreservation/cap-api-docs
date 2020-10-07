@@ -10,9 +10,9 @@ get:
   tags:
     - Deposits
   summary: Get deposit by ID
-  description: |
-    Retrieve a deposit/draft resource by the `deposit_id`
-    > You need to have at least 'read' access
+  description: >
+    Retrieve a deposit/draft resource by the `deposit_id`. You need to have at
+    least `read` access
   operationId: get_deposit
   responses:
     '200':
@@ -26,8 +26,9 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/DepositResponse'
-          example:
-            $ref: '#/components/examples/depositResponse'
+          examples:
+            depositResponse:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'
 put:
@@ -59,10 +60,10 @@ put:
       content:
         application/json:
           schema:
-            type: string
+            $ref: '#/components/schemas/DepositResponse'
           examples:
-            response:
-              value: Hello world!
+            depositResponse:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'
 patch:
@@ -130,9 +131,9 @@ patch:
         schema:
           $ref: '#/components/schemas/DepositMetadata'
         example:
-          op: replace
-          path: /general_title
-          value: Gen Test
+          - op: replace
+            path: /general_title
+            value: Gen Test
     description: >
       A [JSON Patch](http://jsonpatch.com/) object that will update/patch on top
       of the `metadata` of the resource
@@ -150,9 +151,9 @@ patch:
       content:
         application/json:
           schema:
-            type: string
+            $ref: '#/components/schemas/DepositResponse'
           examples:
-            response:
-              value: Hello world!
+            depositResponse:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

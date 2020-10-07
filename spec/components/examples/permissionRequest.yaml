@@ -1,0 +1,5 @@
+value:
+  - email: test@cern.ch
+    type: user
+    op: add
+    action: deposit-read

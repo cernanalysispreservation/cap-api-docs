@@ -21,8 +21,7 @@ get:
             type: string
           examples:
             response:
-              value:
-                message: OK
+              value: OK!
     '400':
       description: Exception
       headers:
@@ -33,4 +32,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error_message'
+            type: string
+          examples:
+            response:
+              value: ERROR

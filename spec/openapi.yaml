@@ -58,30 +58,24 @@ externalDocs:
   url: 'https://cernanalysispreservation.readthedocs.io'
 tags:
   - name: Deposits
-    description: The Deposit resource is used for uploading and editing records on CAP
+    description: The Deposit resource is used for creating and editing records on CAP.
   - name: Records
     description: >
-      The Record resource is used for fetching and searching published records
-      on CAP. Create deposit
+      The Record resource is used for retrieving and searching published records
+      on CAP.
   - name: Files
     description: >
-      The Files resource is used for uploading files and attach them to
-      records/deposits
-
-      The following type of upload are possible:
-        * Local files
-        * Git repos
-        * URL linked files
+      The Files resource allows the user to upload files and attach them to
+      specific records/deposits. The following upload options are possible:
+        * Files from a local location
+        * Files from a URL location
+        * Git repos available in **GitHub / GitLab** (in a `.tar` archive)
   - name: Search
-    description: Search functionality
+    description: Search functionality.
   - name: Schemas
-    description: Operations about schemas
+    description: Schema-related operations.
   - name: JSON Schemas
-    description: Operations about schemas
-  - name: Services
-    description: Operations about services
-  - name: User
-    description: Operations about user
+    description: JSON Schema related operations
 security:
   - Access Token: []
 servers:

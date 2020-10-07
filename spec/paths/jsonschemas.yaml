@@ -22,7 +22,26 @@ get:
               $ref: '#/components/schemas/JSONSchemaResource'
           examples:
             response:
-              value: {}
+              value:
+                - deposit_mapping: {}
+                  deposit_options: {}
+                  deposit_schema: {}
+                  fullname: ''
+                  is_indexed: false
+                  links:
+                    deposit: >-
+                      https://analysispreservation.cern/ch/api/schemas/deposits/records/access-v0.0.1.json
+                    record: >-
+                      https://analysispreservation.cern/ch/api/schemas/records/access-v0.0.1.json
+                    self: 'https://analysispreservation.cern/ch/api/jsonschemas/access/0.0.1'
+                  name: access
+                  record_mapping: {}
+                  record_options: {}
+                  record_schema: {}
+                  use_deposit_as_record: true
+                  version: 0.0.1
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
 post:
   tags:
     - JSON Schemas
@@ -58,3 +77,5 @@ post:
           examples:
             response:
               $ref: '#/components/examples/JSONSchemaResource'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

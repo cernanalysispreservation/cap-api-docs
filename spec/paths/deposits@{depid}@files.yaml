@@ -18,11 +18,10 @@ get:
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/FileResponse'
-          example:
-            $ref: '#/components/examples/fileResponse'
+            $ref: '#/components/schemas/FileResponse'
+          examples:
+            fileExample:
+              $ref: '#/components/examples/fileResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'
 post:
@@ -48,7 +47,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/DepositResponse'
-          example:
-            $ref: '#/components/examples/depositResponse'
+          examples:
+            uploadFileExample:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

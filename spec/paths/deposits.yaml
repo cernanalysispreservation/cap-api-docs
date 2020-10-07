@@ -2,16 +2,14 @@ post:
   summary: Create a new draft
   description: >
     To create a new draft you need to pass a correct analysis type (`$ana_type`)
-    OR a correct JSON Schema.
+    OR a correct JSON Schema (`$schema`).
 
 
-    > JSON Schemas and analysis types (`$ana_type`) depend on the access rights
-    you have and mainly\
+    JSON Schemas and analysis types (`$ana_type`) depend on the access rights
+    you have and mainly 
 
     correspond to the CERN collaboration you are part of (***ALICE, ATLAS, CMS,
-    LHCb***).\
-
-    To get the list of available schemas you can call the 
+    LHCb***).
   tags:
     - Deposits
   requestBody:
@@ -22,14 +20,13 @@ post:
         examples:
           simple:
             value:
-              $ana_type: <an accesible analysis type>
+              $ana_type: cms-analysis
+              analysis_title: Test title
           simple_with_schema:
             value:
-              $schema: <URI of accesible JSON schema>
-          advanced:
-            value:
-              $ana_type: <an accesible analysis type>
-              analysis_title: This is a title that describes my analysis
+              $schema: >-
+                https://analysispreservation.cern.ch/api/schemas/deposits/records/cms-analysis-v0.0.1.json
+              analysis_title: Test title
   responses:
     '200':
       description: OK
@@ -43,7 +40,7 @@ post:
           schema:
             $ref: '#/components/schemas/DepositResponse'
           examples:
-            depositCreated:
+            depositResponse:
               $ref: '#/components/examples/depositResponse'
     '400':
       description: Validation error
@@ -80,52 +77,9 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              aggregations:
-                type: object
-                description: Aggregations of returned results
-              hits:
-                type: object
-                properties:
-                  hits:
-                    $ref: '#/components/schemas/Record'
-                  total:
-                    type: number
-                    description: Total number of results
-              links:
-                type: object
-                description: Links related with the deposits results (ex. prev/next page)
-          example:
-            aggregations: {}
-            hits:
-              hits:
-                - can_admin: true
-                  can_edit: true
-                  created: '2018-11-05T09:16:31.496137+00:00'
-                  id: CAP.ALICE.FPEE.8XTW
-                  links:
-                    self: >-
-                      https://analysispreservation.cern.ch/records/CAP.ALICE.FPEE.8XTW
-                  metadata: {}
-                  published:
-                    revision_id: 0
-                    type: recid
-                    value: CAP.ALICE.FPEE.8XTW
-                  revision: 0
-                  schema: >-
-                    https://analysispreservation.cern.ch/schemas/records/alice-analysis-v0.0.1.json
-                  status: published
-                  updated: '2018-11-05T09:16:31.496146+00:00'
-                - {}
-                - {}
-              total: 130
-            links:
-              next: >-
-                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=3&size=10
-              prev: >-
-                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=1&size=10
-              self: >-
-                https://analysispreservation.cern.ch/api/deposits/?sort=mostrecent&page=2&size=10
+            $ref: '#/components/schemas/DepositSearchResponse'
+          examples:
+            depositSearchResponse:
+              $ref: '#/components/examples/depositSearchResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

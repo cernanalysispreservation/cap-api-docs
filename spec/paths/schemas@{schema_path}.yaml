@@ -24,5 +24,15 @@ get:
           examples:
             response:
               value:
-                title: Hello world!
-                abstract: This is my abstract
+                properties:
+                  key:
+                    type: string
+                  url:
+                    pattern: '^(http|https|root)://'
+                    type: string
+                  version_id:
+                    type: string
+                type: object
+                x-cap-file:
+                  fetch_from: /url
+                  file_key: /key
