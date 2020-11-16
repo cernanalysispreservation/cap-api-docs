@@ -29,7 +29,8 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/DepositResponse'
-          example:
-            $ref: '#/components/examples/depositResponse'
+          examples:
+            publishExample:
+              $ref: '#/components/examples/depositResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

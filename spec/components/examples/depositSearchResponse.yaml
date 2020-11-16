@@ -1,0 +1,56 @@
+value:
+  aggregations: {}
+  hits:
+    hits:
+      - access:
+          deposit-admin:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+          deposit-read:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+          deposit-update:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+        created: '2020-10-07T10:57:13.800870+00:00'
+        created_by: info@inveniosoftware.org
+        experiment: CMS
+        files: []
+        id: 7f43c45e71ee4b86a9c3045ea57f09ad
+        is_owner: true
+        labels: []
+        links:
+          bucket: 'https://analysispreservation.cern/ch/api/files/3683bc9a-3d11-4695-a68e-07a7f63b3ec9'
+          clone: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/clone
+          discard: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/discard
+          disconnect_webhook: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/disconnect_webhook
+          edit: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/edit
+          files: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/files
+          html: 'https://analysispreservation.cern/ch/drafts/7f43c45e71ee4b86a9c3045ea57f09ad'
+          permissions: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/permissions
+          publish: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/publish
+          self: 'https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad'
+          upload: >-
+            https://analysispreservation.cern/ch/api/deposits/7f43c45e71ee4b86a9c3045ea57f09ad/actions/upload
+        metadata: {}
+        revision: 0
+        schema:
+          fullname: CMS Analysis
+          name: cms-analysis
+          version: 0.0.1
+        status: draft
+        type: deposit
+        updated: '2020-10-07T10:57:13.800875+00:00'
+    total: 1
+  links:
+    - 'https://analysispreservation.cern/ch/api/deposits/?page=1&size=10'

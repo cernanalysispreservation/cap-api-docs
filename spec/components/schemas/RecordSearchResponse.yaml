@@ -1,0 +1,19 @@
+description: Response from searching records
+type: object
+properties:
+  aggregations:
+    type: object
+    description: Aggregations and search facets of returned results (used in UI)
+  hits:
+    type: object
+    properties:
+      hits:
+        type: array
+        items:
+          $ref: '#/components/schemas/Record'
+      total:
+        type: number
+        description: Total number of results
+  links:
+    type: object
+    description: 'Links related with the record results (e.g. prev/next page, self)'

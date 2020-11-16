@@ -2,4 +2,6 @@ title: JSON Schema URL that will validate the record
 description: >-
   JSON Schema URL of the record to be created. The metadata of the record will
   validate against this schema
+example: >-
+  https://analysispreservation.cern.ch/api/schemas/deposits/records/test-analysis-v0.0.1.json
 type: string

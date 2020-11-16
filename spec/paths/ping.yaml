@@ -27,4 +27,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error_message'
+            type: string
+          examples:
+            response:
+              value: ERROR

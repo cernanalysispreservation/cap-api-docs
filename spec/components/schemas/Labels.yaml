@@ -1,0 +1,4 @@
+description: Labels associated with a deposit
+type: array
+items:
+  type: string

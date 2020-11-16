@@ -1,1 +1,17 @@
-{}
+description: Files associated with a deposit
+type: array
+items:
+  type: object
+  properties:
+    filename:
+      type: string
+      description: The full name of the file
+    filesize:
+      type: string
+      description: The size of the file in bytes
+    checksum:
+      type: string
+      description: The SHA1 of the file
+    id:
+      type: string
+      description: The internal id of the file

@@ -1,0 +1,41 @@
+value:
+  aggregations: {}
+  hits:
+    hits:
+      - access:
+          record-admin:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+          record-read:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+          record-update:
+            roles: []
+            users:
+              - info@inveniosoftware.org
+        created: '2020-10-14T11:56:33.842619+00:00'
+        created_by: info@inveniosoftware.org
+        draft_id: e0baf5da4ba4439a95bcf4cba2e693d8
+        experiment: CMS
+        files: []
+        id: CAP.CMS.NHUU.8813
+        is_owner: true
+        labels: []
+        links:
+          html: 'https://analysispreservation.cern/ch/published/CAP.CMS.NHUU.8813'
+          self: 'https://analysispreservation.cern/ch/api/records/CAP.CMS.NHUU.8813'
+        metadata:
+          general_title: test
+        revision: 0
+        schema:
+          fullname: CMS Analysis
+          name: cms-analysis
+          version: 0.0.1
+        status: published
+        type: record
+        updated: '2020-10-14T11:56:33.842625+00:00'
+    total: 1
+  links:
+    self: 'https://analysispreservation.cern/ch/api/records/?page=1&sort=mostrecent&q=&size=10'

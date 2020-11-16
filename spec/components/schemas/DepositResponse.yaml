@@ -2,28 +2,48 @@ description: Deposit resource
 type: object
 properties:
   access:
-    type: array
-    items:
-      $ref: '#/components/schemas/Permission'
+    $ref: '#/components/schemas/Permission'
   created:
     type: string
     format: date-time
     description: Creation time of record
+  created_by:
+    $ref: '#/components/schemas/Email'
+  experiment:
+    type: string
+    description: Experiment that the deposit is associated with
   id:
     type: string
     format: uuid
     description: Deposit ID
+  is_owner:
+    type: boolean
+    description: Check if the user that made the request is the owner of the deposit
   links:
     type: object
+    description: The related links for this deposit
   metadata:
     $ref: '#/components/schemas/DepositMetadata'
+  files:
+    $ref: '#/components/schemas/FileResponse'
+  labels:
+    $ref: '#/components/schemas/Labels'
   revision:
     type: number
     description: Revision of current record
   schema:
-    type: string
-    format: uri
-    description: JSON Schema the record is verified against
+    type: object
+    properties:
+      fullname:
+        type: string
+        description: The full name of the schema
+      name:
+        type: string
+        description: The short name (`$ana_type`) of the schema
+      version:
+        type: string
+        description: The version of the schema to be used
+    description: Attributes of the JSON Schema the record is verified against
   status:
     type: string
     enum:

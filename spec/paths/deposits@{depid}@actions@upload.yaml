@@ -6,20 +6,6 @@ parameters:
       type: string
       format: uuid
     required: true
-  - name: type
-    in: query
-    description: Url type (repo/url)
-    schema:
-      type: string
-      enum: [url, repo]
-    required: true
-  - name: url
-    in: query
-    description: Url of repo/file to upload
-    schema:
-      type: string
-      format: uuid
-    required: true
 post:
   tags:
     - Deposits
@@ -34,6 +20,33 @@ post:
     The API differentiates between whole repos (saved as .tar) and single files
     from repos, so the parameter "type" is necessary.
   operationId: uploadDeposit
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            url:
+              type: string
+              description: Url of repo/file to upload
+            type:
+              type: string
+              description: Type of data to be uploaded
+              enum:
+                - repo
+                - url
+            webhook:
+              type: boolean
+              description: Does the user need a webhook integration (true/false)
+            event_type:
+              type: string
+              description: Webhook event for updating
+              enum:
+                - release
+                - push
+        examples:
+          uploadRequest:
+            $ref: '#/components/examples/uploadRequest'
   responses:
     '200':
       description: OK

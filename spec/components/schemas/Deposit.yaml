@@ -23,5 +23,3 @@ oneOf:
         $ref: '#/components/schemas/Schema'
       analysis_title:
         type: string
-      abstract:
-        type: string

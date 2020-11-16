@@ -14,6 +14,18 @@ post:
     Add or remove `user` and `e-group` access to the resource
     > You need to have 'admin' rights for the deposit to change permissions
   operationId: permissionsDeposit
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PermissionRequest'
+        examples:
+          permissionRequest:
+            $ref: '#/components/examples/permissionRequest'
+    description: |
+      A JSON object that will replace the `metadata` field of the resource
+      > It should validate against the specified `$schema` of the resource
+    required: true
   responses:
     '200':
       description: OK
