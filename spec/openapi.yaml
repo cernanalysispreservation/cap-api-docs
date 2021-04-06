@@ -52,8 +52,8 @@ info:
 
     <!-- ReDoc-Inject: <security-definitions> -->
 externalDocs:
-  description: Click here if you are looking for our development documentation.
-  url: 'https://cernanalysispreservation.readthedocs.io'
+  description: Click here if you are looking for our general documentation.
+  url: 'https://analysispreservation.cern.ch/docs/general/'
 tags:
   - name: Deposits
     description: The Deposit resource is used for uploading and editing records on CAP.
