@@ -15,7 +15,7 @@ get:
   tags:
     - JSON Schemas
   summary: Get schema by name and version
-  description: Retrieve the latest JSON Schemas for the specified `name`
+  description: Retrieve the latest JSON Schemas for a specified `name` and `version`.
   operationId: getSchemaByNameAndVersion
   responses:
     '200':
@@ -35,11 +35,11 @@ get:
 put:
   tags:
     - JSON Schemas
-  summary: Update schemas for a specific name and version
+  summary: Update schemas for a specific name and version,
   description: >
-    Create a new JSON schemas. Add your customized schemas for records and
+    Create a new JSON Schema. Add your customized schemas for records and
     deposits, your corresponding UI form options and ES search mapping for
-    better indexing
+    better indexing.
   operationId: updateSchemaByNameAndVersion
   requestBody:
     content:
@@ -50,8 +50,8 @@ put:
           title: My new title
           abstract: Already commited/saved abstract desciption
     description: |
-      A JSON object that will replace the `metadata` field of the resource
-      > It should validate against the specified `$schema` of the resource
+      A JSON object that will replace the `metadata` field of the resource.
+      > It should validate against the specified `$schema` of the resource.
     required: true
   responses:
     '200':
@@ -72,7 +72,7 @@ delete:
   tags:
     - JSON Schemas
   summary: Remove schemas for a specific name and version
-  description: Remove schemas for a specific name and version
+  description: Remove schemas for a specific name and version.
   operationId: deleteSchemaByNameAndVersion
   responses:
     '200':

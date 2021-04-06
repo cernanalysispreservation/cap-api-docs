@@ -11,8 +11,8 @@ get:
     - Deposits
   summary: Get deposit by ID
   description: |
-    Retrieve a deposit/draft resource by the `deposit_id`
-    > You need to have at least 'read' access
+    Retrieve a deposit/draft resource using `deposit_id`.
+    > You need to have at least 'read' access.
   operationId: get_deposit
   responses:
     '200':
@@ -34,7 +34,7 @@ put:
   tags:
     - Deposits
   summary: Update a deposit
-  description: Update a deposit/draft resource
+  description: Update a deposit/draft resource.
   operationId: depositUpdate
   requestBody:
     content:
@@ -45,8 +45,8 @@ put:
           title: My new title
           abstract: Already commited/saved abstract desciption
     description: |
-      A JSON object that will replace the `metadata` field of the resource
-      > It should validate against the specified `$schema` of the resource
+      A JSON object that will replace the `metadata` field of the resource.
+      > It should validate against the specified `$schema` of the resource.
     required: true
   responses:
     '200':
@@ -70,7 +70,7 @@ patch:
     - Deposits
   summary: Patch a deposit
   description: >
-    Update a deposit/draft resource with a [JSON Patch](http://jsonpatch.com/)
+    Update a deposit/draft resource with a [JSON Patch](http://jsonpatch.com/).
 
 
     ### What is JSON Patch?
@@ -87,7 +87,7 @@ patch:
 
 
     JSON Patch is specified in [RFC 6902](http://tools.ietf.org/html/rfc6902)
-    from the IETF.
+    by the IETF.
 
 
     ### Simple example
@@ -135,9 +135,9 @@ patch:
           value: Gen Test
     description: >
       A [JSON Patch](http://jsonpatch.com/) object that will update/patch on top
-      of the `metadata` of the resource
+      of the `metadata` of the resource.
 
-      > It should validate against the specified `$schema` of the resource
+      > It should validate against the specified `$schema` of the resource.
     required: true
   responses:
     '200':

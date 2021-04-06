@@ -3,8 +3,8 @@ get:
     - JSON Schemas
   summary: Get a list of available JSON Schemas
   description: >-
-    List of the available JSON schemas. They can be used to create an analysis
-    record
+    List of the available JSON Schemas. They can be used to create an analysis
+    record.
   operationId: getJSONSchemas
   responses:
     '200':
@@ -26,11 +26,11 @@ get:
 post:
   tags:
     - JSON Schemas
-  summary: Create a new JSON Schemas
+  summary: Create a new JSON schema
   description: >
-    Create a new JSON schemas. Add your customized schemas for records and
+    Create a new JSON Schema. Add your customized schemas for records and
     deposits, your corresponding UI form options and ES search mapping for
-    better indexing
+    better indexing.
   operationId: createJSONSchemas
   requestBody:
     content:
@@ -41,7 +41,7 @@ post:
           simple:
             $ref: '#/components/examples/JSONSchemaResource'
     description: |
-      A JSON object that will populate the `Schema` resource
+      A JSON object that will populate the `Schema` resource.
     required: true
   responses:
     '200':

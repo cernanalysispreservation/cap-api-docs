@@ -9,12 +9,12 @@ parameters:
 post:
   tags:
     - Deposits
-  summary: Edit published deposit
+  summary: Edit a published deposit
   description: >
     To be able to **edit** an already `published` deposit, you should first
     change it's status to `draft`. Only then you can
     [update](#operation/depositUpdate) or [patch](#operation/depositPatch)
-    depending on your needs 
+    depending on your needs.
   operationId: editDeposit
   responses:
     '200':

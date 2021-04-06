@@ -11,8 +11,8 @@ post:
     - Deposits
   summary: Add/remove permissions
   description: |
-    Add or remove `user` and `e-group` access to the resource
-    > You need to have 'admin' rights for the deposit to change permissions
+    Add or remove `user` and `e-group` access for a resource.
+    > You need to have 'admin' rights for the deposit to be able to change permissions.
   operationId: permissionsDeposit
   responses:
     '200':

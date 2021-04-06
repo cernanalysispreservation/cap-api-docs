@@ -2,11 +2,11 @@ type: apiKey
 in: query
 name: access_token
 description: >
-  > Your access token will allow you to use the service in the same way in which
-  you may use it if you log in on the web portal. You will have the same
-  permissions unless specified otherwise creation of the token. This implies
+  > Your access token will allow you to use the service in the same way you would
+  use it through the web portal. You will have the same
+  permissions unless specified otherwise during the creation of the token. This implies
   that anyone who has this token can log in as yourself to the service. Do not
-  share your personal access token with anyone else, and only use it with HTTPS!
+  share your personal access token with anyone else, and only use it with HTTPS.
 
 
   To get an access token, you will need to log in on the web portal and [create

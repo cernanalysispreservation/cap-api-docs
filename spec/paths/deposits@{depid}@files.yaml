@@ -11,7 +11,7 @@ get:
     - Deposits
   summary: Get deposit files
   description: |
-    Retrieve all files that are associated with the draft record
+    Retrieve all files that are associated with a draft record.
   responses:
     '200':
       description: List of files
@@ -28,10 +28,10 @@ get:
 post:
   tags:
     - Deposits
-  summary: Upload local files
+  summary: Upload local files.
   description: |
-    Retrieve a draft records by the `deposit_id`
-    > You need to have at least 'read' access
+    Retrieve a draft record using `deposit_id`
+    > You need to have at least 'read' access.
   operationId: filesDeposit
   responses:
     '200':
