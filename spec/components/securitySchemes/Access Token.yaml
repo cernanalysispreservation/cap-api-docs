@@ -2,24 +2,22 @@ type: apiKey
 in: query
 name: access_token
 description: >
-  > Your access token will allow you to use the service in the same way you would
-  use it through the web portal. You will have the same
-  permissions unless specified otherwise during the creation of the token. This implies
-  that anyone who has this token can log in as yourself to the service. Do not
-  share your personal access token with anyone else, and only use it with HTTPS.
+  Your access token will allow you to use the service in the same way you would
+  use it through the web portal. It gives full access to your account and anyone who has this token can log in as yourself to the service.
+
+
+  Do not share your personal access token with anyone else, and only use it with HTTPS.
 
 
   To get an access token, you will need to log in on the web portal and [create
-  one](https://analysispreservation.cern.ch/settings), as shown below.
-
-  In this dialog, `scopes` lets you define permissions for the token which by
-  default only include read access to your drafts and records.
+  one](https://analysispreservation.cern.ch/settings) by clicking on `Add Token` as shown below.
 
 
-  ![create_token](https://cernanalysispreservation.readthedocs.io/en/latest/_images/fig_token.png)
+  ![create_token](https://github.com/cernanalysispreservation/analysispreservation.cern.ch/raw/master/docs/_static/fig_token_new.png)
 
 
-  Clicking "Submit" will generate and show your personal token in the browser.
-  Please copy it to a safe place on your computer, as it is not stored on the
-  portal and you will not be able to retrieve the same token again in the
-  future.
+  Once you have created your token, you can see the generated key in the settings page
+  where your list of tokens is stored. It is also possible to revoke a token.
+
+
+  ![your_list_of_tokens](https://github.com/cernanalysispreservation/analysispreservation.cern.ch/raw/master/docs/_static/fig_token_new2.png)
