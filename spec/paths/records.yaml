@@ -8,8 +8,8 @@ get:
     - Search
   summary: Retrieve a list of records
   description: >-
-    Query published records (You need to have at least 'read' access to query
-    them)
+    Query published records.
+    > You need to have at least 'read' access to query them.
   operationId: get_records
   parameters:
     - $ref: '#/components/parameters/query'
@@ -57,7 +57,7 @@ post:
   tags:
     - Records
   summary: Create a record
-  description: Create a record
+  description: Create a record.
   operationId: create_record
   responses:
     '200':

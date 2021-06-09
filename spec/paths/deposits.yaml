@@ -6,12 +6,10 @@ post:
 
 
     > JSON Schemas and analysis types (`$ana_type`) depend on the access rights
-    you have and mainly\
-
-    correspond to the CERN collaboration you are part of (***ALICE, ATLAS, CMS,
+    you have and mainly correspond to the CERN collaboration you are part of (***ALICE, ATLAS, CMS,
     LHCb***).\
 
-    To get the list of available schemas you can call the 
+    To get the list of available schemas you can call the
   tags:
     - Deposits
   requestBody:
@@ -59,8 +57,8 @@ post:
 get:
   summary: List all deposits/drafts
   description: >-
-    List all deposits for the currently authenticated user. At least `read`
-    access is needed to query a record
+    List all deposits for the currently authenticated user.
+    > At least `read` access is needed to query a record.
   tags:
     - Deposits
   parameters:

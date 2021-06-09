@@ -12,7 +12,7 @@ post:
   summary: Publish to collaboration
   description: >
     Create a new version of the document and make it public to your
-    collaboration
+    collaboration.
   operationId: publishDeposit
   responses:
     '200':

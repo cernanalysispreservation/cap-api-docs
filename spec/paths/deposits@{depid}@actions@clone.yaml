@@ -11,8 +11,8 @@ post:
     - Deposits
   summary: Clone/duplicate a draft
   description: |
-    Retrieve a draft records by the `deposit_id`
-    > You need to have at least 'read' access
+    Retrieve a draft record using `deposit_id`.
+    > You need to have at least 'read' access.
   operationId: cloneDeposit
   responses:
     '200':

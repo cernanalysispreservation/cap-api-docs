@@ -9,7 +9,7 @@ get:
   tags:
     - JSON Schemas
   summary: Get latest version by name
-  description: Retrieve the latest JSON Schemas for the specified `name`
+  description: Retrieve the latest JSON Schema for a specified `name`.
   operationId: getLatestByName
   responses:
     '200':

@@ -4,7 +4,7 @@ get:
   tags:
     - Workflows
   summary: Get all the workflows
-  description: Get all the workflows (created and deleted) from the user
+  description: Get all the workflows (created and deleted) from the user.
   operationId: reana_workflow_all
   responses:
     '200':
