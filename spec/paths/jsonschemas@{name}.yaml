@@ -9,7 +9,7 @@ get:
   tags:
     - JSON Schemas
   summary: Get latest version by name
-  description: Retrieve the latest JSON Schemas for the specified `name`
+  description: Retrieve the latest JSON Schema for a specified `name`.
   operationId: getLatestByName
   responses:
     '200':
@@ -25,4 +25,6 @@ get:
             $ref: '#/components/schemas/JSONSchema'
           examples:
             response:
-              $ref: '#/components/schemas/JSONSchema'
+              $ref: '#/components/examples/JSONSchemaResource'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

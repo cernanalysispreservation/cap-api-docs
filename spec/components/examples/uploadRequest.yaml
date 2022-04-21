@@ -1,0 +1,5 @@
+value:
+  type: repo
+  url: https://github.com/user/test
+  webhook: true
+  event_type: push

@@ -1,0 +1,51 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+post:
+  tags:
+    - Deposits
+  summary: Update the review in a draft.
+  description: |
+    Adds review and comments for a deposit.
+
+    > You need to have at least 'read' access and 'review' permissions. Review field will show up in the response only if the record schema is `reviewable`.
+  operationId: updateReviewDeposit
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            action:
+              type: enum
+              enum:
+                - resolve
+                - delete
+                - comment
+            id:
+              type: string
+              description: Unique uuid of the review
+          example:
+            action: resolve
+            id: f35261fc-2173-41c0-a208-fe7c7edf9831
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositReviewResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

@@ -2,34 +2,61 @@ description: Deposit resource
 type: object
 properties:
   access:
-    type: array
-    items:
-      $ref: '#/components/schemas/Permission'
+    $ref: '#/components/schemas/Access'
+  can_admin:
+    type: boolean
+  can_update:
+    type: boolean
   created:
     type: string
     format: date-time
     description: Creation time of record
+  created_by:
+    type: object
+    properties:
+      email:
+        $ref: '#/components/schemas/Email'
+      profile:
+        $ref: '#/components/schemas/User'
+  experiment:
+    type: string
+    description: Associated experiment with the deposit
+  files:
+    $ref: '#/components/schemas/FileResponse'
   id:
     type: string
     format: uuid
     description: Deposit ID
+  is_owner:
+    type: boolean
+    description: True if current user is owner of the deposit
+  labels:
+    $ref: '#/components/schemas/Labels'
   links:
     type: object
+    description: The related links for this deposit
   metadata:
     $ref: '#/components/schemas/DepositMetadata'
+  review:
+    type: array
   revision:
     type: number
     description: Revision of current record
   schema:
-    type: string
-    format: uri
-    description: JSON Schema the record is verified against
+    $ref: '#/components/schemas/Schema'
   status:
     type: string
     enum:
       - draft
       - published
+  type:
+    type: string
+    enum:
+      - deposit
+      - record
   updated:
     type: string
     format: date-time
     description: Last updated time of record
+  webhooks:
+    type: array

@@ -1,0 +1,12 @@
+value:
+  size: 442
+  delete_marker: false
+  links: {}
+  created: "2022-04-20T13:13:01.105707+00:00"
+  updated: "2022-04-20T13:13:01.113000+00:00"
+  tags: {}
+  version_id: b5f224ef-efe2-4ea5-9b47-d13623dd47bb
+  is_head: true
+  key: testname
+  mimetype: text/plain
+  checksum: md5:c63fcd62028c636019556ee6a1f2f62c

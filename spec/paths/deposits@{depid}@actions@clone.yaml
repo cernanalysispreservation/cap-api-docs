@@ -11,8 +11,9 @@ post:
     - Deposits
   summary: Clone/duplicate a draft
   description: |
-    Retrieve a draft records by the `deposit_id`
-    > You need to have at least 'read' access
+    Clone a deposit and add snapshot of the files when resource is cloned.
+
+    > You need to have at least `read` access.
   operationId: cloneDeposit
   responses:
     '200':

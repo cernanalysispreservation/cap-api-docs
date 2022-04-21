@@ -1,0 +1,45 @@
+value:
+  access:
+    - deposit-read:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - deposit-update:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - deposit-admin:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+  can_admin: true
+  can_update: true
+  created: 2019-08-29T08:36:37.552Z
+  created_by:
+    - email: cms_user@cern.ch
+    - profile: {}
+  experiment: CMS
+  files:
+    - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
+      checksum: None
+      key: test-user_test-repo_test-branch.tar.gz
+      size: 0
+      source_url: https://gitlab.cern.ch/test-user/test-repo/tree/test-branch
+      version_id: ffe05069-8f2a-49da-8617-957b05614723
+  id: 055c24bad4ee4d6fa44a9432b49fe77e
+  is_owner: true
+  labels: []
+  links: {}
+  metadata: {}
+  review:
+    - body: Test
+      id: f35261fc-2173-41c0-a208-fe7c7edf9831
+      resolved: false
+      reviewer: test_cms_reviewer@cern.ch
+      type: approved
+  schema:
+    - fullname: CMS Analysis
+    - name: cms-analysis
+    - version: 0.0.1
+  type: deposit
+  revision: 2
+  status: published
+  updated: 2019-08-29T08:36:38.114Z
+  webhooks: []

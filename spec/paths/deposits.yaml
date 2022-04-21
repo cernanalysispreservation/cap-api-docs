@@ -1,17 +1,14 @@
 post:
   summary: Create a new draft
   description: >
-    To create a new draft you need to pass a correct analysis type (`$ana_type`)
-    OR a correct JSON Schema.
+    To create a new draft you need to pass a valid analysis type OR JSON Schema.
+    (`$ana_type`/`$schema`)
 
 
-    > JSON Schemas and analysis types (`$ana_type`) depend on the access rights
-    you have and mainly\
+    > Analysis types (`$ana_type`) and JSON Schemas (`$schema`) depend on the access rights
+    of the logged in user and mainly correspond to the CERN collaboration you are part of
+    (***ALICE, ATLAS, CMS, LHCb***).
 
-    correspond to the CERN collaboration you are part of (***ALICE, ATLAS, CMS,
-    LHCb***).\
-
-    To get the list of available schemas you can call the 
   tags:
     - Deposits
   requestBody:
@@ -20,19 +17,21 @@ post:
         schema:
           $ref: '#/components/schemas/Deposit'
         examples:
-          simple:
+          simple_with_ana_type:
             value:
-              $ana_type: <an accesible analysis type>
+              $ana_type: cms-analysis
           simple_with_schema:
             value:
-              $schema: <URI of accesible JSON schema>
+              $schema: >-
+                https://analysispreservation.cern.ch/api/schemas/deposits/records/cms-analysis-v0.0.1.json
           advanced:
             value:
-              $ana_type: <an accesible analysis type>
+              $schema: >-
+                https://analysispreservation.cern.ch/api/schemas/deposits/records/cms-analysis-v0.0.1.json
               analysis_title: This is a title that describes my analysis
   responses:
-    '200':
-      description: OK
+    '201':
+      description: Created
       headers:
         X-Rate-Limit:
           $ref: '#/components/headers/RateLimit'
@@ -43,7 +42,7 @@ post:
           schema:
             $ref: '#/components/schemas/DepositResponse'
           examples:
-            depositCreated:
+            depositResponse:
               $ref: '#/components/examples/depositResponse'
     '400':
       description: Validation error
@@ -57,10 +56,11 @@ post:
     '401':
       $ref: '#/components/responses/NotAuthorized'
 get:
-  summary: List all deposits/drafts
+  summary: List all drafts
   description: >-
-    List all deposits for the currently authenticated user. At least `read`
-    access is needed to query a record
+    List all deposits for the currently authenticated user.
+
+    > You need to have at least `read` access to query the resource.
   tags:
     - Deposits
   parameters:

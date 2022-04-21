@@ -1,0 +1,31 @@
+parameters:
+  - name: recid
+    in: path
+    description: Record ID of the CDS document
+    schema:
+      type: string
+      format: uuid
+    required: true
+get:
+  tags:
+    - Services
+  summary: Get a CDS document
+  description: >
+    Retrieve a CDS resource using `record_id`.
+
+    > The `record_id` is of CDS document.
+  operationId: getCDSrecord
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

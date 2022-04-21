@@ -1,0 +1,32 @@
+value:
+  contents:
+    - mimetype: application/x-sh
+      delete_marker: false
+      tags: {}
+      links:
+        self: >-
+          https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f/hello/world/redirects.sh
+        version: >-
+          https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f/hello/world/redirects.sh?versionId=5d7e05ea-7c7c-48b9-913b-8ebadf26182e
+        uploads: >-
+          https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f/hello/world/redirects.sh?uploads
+      size: 163
+      is_head: true
+      version_id: 5d7e05ea-7c7c-48b9-913b-8ebadf26182e
+      checksum: 'md5:b8c74d3430930c8ee0f1b53e525175ba'
+      updated: '2020-10-12T13:39:07.880982+00:00'
+      key: hello/world/redirects.sh
+      created: '2020-10-12T13:39:07.871349+00:00'
+  locked: false
+  links:
+    self: 'https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f'
+    versions: >-
+      https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f?versions
+    uploads: >-
+      https://analysispreservation.cern/ch/api/files/d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f?uploads
+  size: 8425
+  updated: '2020-10-12T13:39:07.894887+00:00'
+  id: d0d4a30c-0d54-4ae3-ac0a-18fb982aad5f
+  max_file_size: null
+  quota_size: null
+  created: '2020-10-12T13:21:40.302308+00:00'

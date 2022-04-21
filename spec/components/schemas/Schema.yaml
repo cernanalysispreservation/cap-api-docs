@@ -1,5 +1,16 @@
-title: JSON Schema URL that will validate the record
-description: >-
-  JSON Schema URL of the record to be created. The metadata of the record will
-  validate against this schema
-type: string
+schema:
+    title: JSON Schema URL that will validate the record
+    type: object
+    description: >-
+      JSON Schema URL of the record to be created. The metadata of the record will
+      validated against this schema.
+    properties:
+      fullname:
+        type: string
+        description: The full name of the schema
+      name:
+        type: string
+        description: The short name (`$ana_type`) of the schema
+      version:
+        description: The version of the schema to be used
+        type: string

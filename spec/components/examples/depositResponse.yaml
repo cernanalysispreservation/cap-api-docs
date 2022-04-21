@@ -1,52 +1,50 @@
 value:
   access:
-    - action: deposit-read
-      identity: cms_user@cern.ch
-      type: user
-    - action: deposit-update
-      identity: cms_user@cern.ch
-      type: user
-    - action: deposit-admin
-      identity: cms_user@cern.ch
-      type: user
+    - deposit-read:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - deposit-update:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - deposit-admin:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+  can_admin: true
+  can_update: true
   created: 2019-08-29T08:36:37.552Z
+  created_by:
+    - email: cms_user@cern.ch
+    - profile: {}
+  experiment: CMS
   files:
     - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
       checksum: None
       key: test-user_test-repo_test-branch.tar.gz
       size: 0
-      source_url: 'https://gitlab.cern.ch/test-user/test-repo/tree/test-branch'
+      source_url: https://gitlab.cern.ch/test-user/test-repo/tree/test-branch
       version_id: ffe05069-8f2a-49da-8617-957b05614723
   id: 055c24bad4ee4d6fa44a9432b49fe77e
-  links: {}
-  metadata: null
-  $schema: >-
-    https://analysispreservation.cern.ch/schemas/deposits/records/test-analysis-v0.0.1.json
-  _deposit:
-    created_by: 1
-    id": 055c24bad4ee4d6fa44a9432b49fe77e
-    owners:
-      - cms_user@cern.ch
-    pid:
-      revision_id: 0
-      type: recid
-      value: CAP.xxx.xxx.xxxx
-    status: published
-  experiment: None
-  _files:
-    - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
-      checksum: None
-      key: test-user_test-repo_test-branch.tar.gz
-      size: 0
-      source_url: 'https://gitlab.cern.ch/test-user/test-repo/tree/test-branch'
-      version_id: ffe05069-8f2a-49da-8617-957b05614723
-  control_number: CAP.xxx.xxx.xxxx
-  published: null
-  revision_id: 0
-  type: recid
-  value: CAP.xxx.xxx.xxxx
+  is_owner: true
+  labels: []
+  links:
+    bucket: https://analysispreservation.cern/ch/api/files/1e72bd32-c2e3-403e-9c01-2faa0b149999
+    clone: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/clone
+    discard: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/discard
+    disconnect_webhook: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/disconnect_webhook
+    edit: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/edit
+    files: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/files
+    html: https://analysispreservation.cern/ch/drafts/055c24bad4ee4d6fa44a9432b49fe77e
+    permissions: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/permissions
+    publish: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/publish
+    self: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e
+    upload: https://analysispreservation.cern/ch/api/deposits/055c24bad4ee4d6fa44a9432b49fe77e/actions/upload
+  metadata: {}
+  schema:
+    - fullname: CMS Analysis
+      name: cms-analysis
+      version: 0.0.1
+  type: deposit
   revision: 2
-  schema: >-
-    https://analysispreservation.cern.ch/schemas/deposits/records/test-analysis-v0.0.1.json
-  status: published
+  status: draft
   updated: 2019-08-29T08:36:38.114Z
+  webhooks: []

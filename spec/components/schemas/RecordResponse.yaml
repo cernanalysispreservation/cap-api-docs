@@ -1,0 +1,73 @@
+description: Record resource
+type: object
+properties:
+  access:
+    $ref: '#/components/schemas/Access'
+  can_review:
+    type: boolean
+  can_update:
+    type: boolean
+  created:
+    type: string
+    format: date-time
+    description: Creation time of record
+  created_by:
+    type: object
+    properties:
+      email:
+        $ref: '#/components/schemas/Email'
+      profile:
+        $ref: '#/components/schemas/User'
+  experiment:
+    type: string
+    description: Associated experiment with the record
+  files:
+    $ref: '#/components/schemas/FileResponse'
+  id:
+    type: string
+    format: uuid
+    description: Record ID
+  draft_id:
+    type: string
+    format: uuid
+    description: ID of the deposit
+  is_owner:
+    type: boolean
+    description: True if current user is owner of the record
+  labels:
+    $ref: '#/components/schemas/Labels'
+  links:
+    type: object
+    properties:
+      html:
+        type: string
+      self:
+        type: string
+  metadata:
+    $ref: '#/components/schemas/DepositMetadata'
+  revision:
+    type: number
+    description: Revision of current record
+  schema:
+    $ref: '#/components/schemas/Schema'
+  schemas:
+    type: object
+    properties:
+      config_reviewable:
+        type: boolean
+      schema:
+        $ref: '#/components/schemas/Schema'
+      uiSchema:
+        type: object
+  status:
+    type: string
+    value: published
+  type:
+    type: string
+    value: record
+  updated:
+    type: string
+    format: date-time
+    description: Last updated time of record
+  webhooks:
+    type: array

@@ -1,0 +1,23 @@
+get:
+  tags:
+    - User
+  summary: Get the dashboard data
+  operationId: getDashboard
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Dashbaord'
+          example:
+            $ref: '#/components/examples/dashboardResponse'
+    '403':
+      description: Forbidden
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

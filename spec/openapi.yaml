@@ -2,10 +2,9 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: CERN Analysis Preservation REST API
-  termsOfService: 'https://analysispreservation.cern.ch/terms/'
   contact:
     email: analysis-preservation-support@cern.ch
-    url: 'https://analysispreservation.cern.ch/about'
+    url: https://analysispreservation.cern.ch
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -13,6 +12,11 @@ info:
     url: >-
       https://github.com/cernanalysispreservation/cap-api-docs/raw/master/web/CAP_API_docs.png
   description: >
+    CERN Analysis Preservation (CAP) is a service developed at the European Organization for Nuclear Research (CERN)
+    to support researchers in preserving and documenting the various components of their physics analyses, so that 
+    they are reusable and understandable in the future.
+
+
     CERN Analysis Preservation offers a REST API to access the service
     independently from the web interface. This allows users to automate specific
     tasks or create their own data interface, using simple HTTP calls.
@@ -20,8 +24,8 @@ info:
 
     # Introduction
 
-    CERN Analysis Preservation provides a RESTful API, built on HTTP. It tries
-    to provide a predictable interface, that includes:
+    CERN Analysis Preservation provides a RESTful API, built on HTTP.
+    It provides a predictable interface, that includes:
 
     * resource URLs,
 
@@ -33,8 +37,8 @@ info:
     You can use your favorite HTTP/REST library for your programming language to
     use CAP's API, or you can use one of our SDKs (CLI clients), currently
     available in Python. Every action from our app is implemented using REST
-    endpoints, all of which are documented and available, in order to bea easily
-    accessible for automations and integrations into specific workflowsor
+    endpoints, all of which are documented and available, in order to be easily
+    accessible for automations and integrations into specific workflows or
     data-related apps.
 
 
@@ -54,34 +58,39 @@ info:
 
     <!-- ReDoc-Inject: <security-definitions> -->
 externalDocs:
-  description: Click here if you are looking for our developement documentation.
-  url: 'https://cernanalysispreservation.readthedocs.io'
+  description: Click here if you are looking for our general documentation.
+  url: 'https://analysispreservation.cern.ch/docs/general'
 tags:
   - name: Deposits
-    description: The Deposit resource is used for uploading and editing records on CAP
+    description: The Deposit resource is used for creating and editing records on CAP.
   - name: Records
     description: >
-      The Record resource is used for fetching and searching published records
-      on CAP. Create deposit
+      The Record resource is used for retrieving and searching published records
+      on CAP.
   - name: Files
     description: >
-      The Files resource is used for uploading files and attach them to
-      records/deposits
+      The Files resource allows the user to upload files and attach them to
+      specific records/deposits. The following upload options are possible:
 
-      The following type of upload are possible:
-        * Local files
-        * Git repos
-        * URL linked files
+        * Files from a local location
+        * Files from a URL location
+        * Git repos available in **GitHub / GitLab** (in a `.tar` archive)
   - name: Search
     description: Search functionality
-  - name: Schemas
-    description: Operations about schemas
   - name: JSON Schemas
-    description: Operations about schemas
+    description: JSON Schema related operations
   - name: Services
-    description: Operations about services
-  - name: User
-    description: Operations about user
+    description: >-
+      The external services provided by the CAP API.
+
+      The following services are available:
+        * [ADL parsing service](https://twiki.cern.ch/twiki/bin/view/LHCPhysics/ADL)
+        * [CDS service](https://cds.cern.ch/)
+        * [Indico service](https://indico.cern.ch/)
+        * LATEX service
+        * ORCID service
+        * ROR service
+        * Zenodo service
 security:
   - Access Token: []
 servers:

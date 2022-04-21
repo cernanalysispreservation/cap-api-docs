@@ -1,0 +1,59 @@
+parameters:
+  - name: org_id
+    in: path
+    description: ORG ID
+    schema:
+      type: string
+    required: true
+get:
+  summary: Get ROR info by providing the ROR ORG ID.
+  tags:
+    - Services
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              acronyms:
+                type: array
+              aliases:
+                type: array
+              country:
+                type: object
+              external_ids:
+                type: object
+              labels:
+                type: array
+              links:
+                type: array
+              name:
+                type: string
+              ror_org_id:
+                type: string
+              types:
+                type: array
+              wikipedia_url:
+                type: string
+          examples:
+            sampleResponse:
+              value:
+                acronyms: ['TiU']
+                aliases: []
+                country: {}
+                external_ids: {}
+                labels: []
+                links: []
+                name: Tilburg University
+                ror_org_id: 04b8v1s79
+                types: []
+                wikipedia_url: http://en.wikipedia.org/wiki/Tilburg_University
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

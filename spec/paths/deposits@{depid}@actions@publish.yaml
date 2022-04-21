@@ -12,11 +12,11 @@ post:
   summary: Publish to collaboration
   description: >
     Create a new version of the document and make it public to your
-    collaboration
+    collaboration.
   operationId: publishDeposit
   responses:
-    '200':
-      description: OK
+    '202':
+      description: Accepted
       headers:
         X-Rate-Limit:
           description: calls per hour allowed by the user
@@ -28,8 +28,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/DepositResponse'
-          example:
-            $ref: '#/components/examples/depositResponse'
+            $ref: '#/components/schemas/RecordResponse'
+          examples:
+            depositSearchResponse:
+              $ref: '#/components/examples/recordResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

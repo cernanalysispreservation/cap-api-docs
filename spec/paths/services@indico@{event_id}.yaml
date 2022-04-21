@@ -1,19 +1,22 @@
 parameters:
-  - name: schema_path
+  - name: event_id
     in: path
-    description: Name/Path for the JSON Schema resource
+    description: Event ID of an Indico event
     schema:
       type: string
+      format: uuid
     required: true
 get:
-  summary: Get a JSON Schema
   tags:
-    - Schemas
+    - Services
+  summary: Get an Indico event data
+  description: Retrieve an Indico event data using `event_id`.
+  operationId: getIndicoEvent
   responses:
     '200':
       description: OK
       headers:
-        RateLimit:
+        X-Rate-Limit:
           $ref: '#/components/headers/RateLimit'
         X-Expires-After:
           $ref: '#/components/headers/ExpiresAfter'
@@ -21,8 +24,5 @@ get:
         application/json:
           schema:
             type: object
-          examples:
-            response:
-              value:
-                title: Hello world!
-                abstract: This is my abstract
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

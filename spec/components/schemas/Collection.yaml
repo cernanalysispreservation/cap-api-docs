@@ -1,0 +1,14 @@
+title: A Collection data resource schema
+type: object
+properties:
+  drafts:
+    type: object
+  published:
+    type: object
+  schema_data:
+    type: object
+  user_drafts:
+    type: object
+  user_published:
+    type: object
+
