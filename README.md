@@ -1,6 +1,17 @@
-# CAP API Documentation OpenAPI Specification
+# CERN Analysis Preservation REST API Documentation
 
-## Working on specification
+### About
+
+This is the documentation behind the REST API for [CERN Analysis Preservation](https://analysispreservation.cern.ch/).
+
+Other documentation:
+- [CERN Analysis Preservation Docs](https://analysispreservation.cern.ch/docs/general/)
+- [CERN Analysis Preservation Client](https://analysispreservation.cern.ch/docs/cli/)
+
+If you need help or have a question about the API Documentation, please contact us via our [email](analysis-preservation-support@cern.ch).
+
+# OpenAPI Specification
+
 ### Install
 
 1. Install [Node JS](https://nodejs.org/)
@@ -18,4 +29,4 @@ Bundles the spec and prepares web_deploy folder with static assets.
 Validates the spec.
 
 #### `npm run gh-pages`
-Deploys docs to GitHub Pages. You don't need to run it manually if you have Travis CI configured.
+Deploys docs to GitHub Pages.

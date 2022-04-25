@@ -6,37 +6,48 @@ parameters:
       type: string
       format: uuid
     required: true
-  - name: type
-    in: query
-    description: Url type (repo/url)
-    schema:
-      type: string
-      enum: [url, repo]
-    required: true
-  - name: url
-    in: query
-    description: Url of repo/file to upload
-    schema:
-      type: string
-      format: uuid
-    required: true
 post:
   tags:
     - Deposits
-  summary: Upload files/data
-  description: |
-    Upload files/data to your analysis, in a specified deposit record.
-    The following type of uploads are possible:
-      * Local files
-      * Git repos
-      * URL linked files
+  summary: Download/Connect the repository/file in a deposit
+  description: >-
 
-    The API differentiates between whole repos (saved as .tar) and single files
-    from repos, so the parameter "type" is necessary.
-  operationId: uploadDeposit
+    - **Download** a snapshot of repository, that you'd like to preserve with your analysis.
+      You can point to the whole repo, specific branch or even a single file whatever your analysis needs.
+      Some repositories are private or restricted for CERN users only (like all the repos in CERN Gitlab) - 
+      to download those you need to connect your Github/Gitlab account first.
+
+    - **Connect** repositories with analysis that are still in progress, to keep them in sync.
+      We'll make a new snapshot on any changes pushed in this repository.
+      This way your analysis will be always up to date with your code. 
+      Keep in mind that you cannot connect to public repositories (owner has to give you a specific access to do that).
+      Upload files/data to your analysis, in a specified deposit record.
+
+  operationId: connectToDeposit
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/UploadRepositories'
+        examples:
+          upload_snapshot_of_repository:
+            value:
+              event_type: null
+              url: https://github.com/cernanalysispreservation/cap-api-docs
+              webhook: false
+          upload_snapshot_of_repository_file:
+            value:
+              event_type: null
+              url: https://github.com/cernanalysispreservation/cap-api-docs/README.md
+              webhook: null
+          webhook_and_snapshot_on_event:
+            value:
+              event_type: push
+              url: https://github.com/cernanalysispreservation/cap-api-docs/tree/master
+              webhook: true
   responses:
-    '200':
-      description: OK
+    '201':
+      description: Created
       headers:
         X-Rate-Limit:
           description: calls per hour allowed by the user

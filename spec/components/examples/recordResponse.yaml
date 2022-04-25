@@ -1,0 +1,42 @@
+value:
+  access:
+    - record-read:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - record-update:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+    - record-admin:
+      - roles: [test_role_1]
+      - users: [{email: cms_user@cern.ch, profile: {}}]
+  can_review: true
+  can_update: true
+  created: 2019-08-29T08:36:37.552Z
+  created_by:
+    - email: cms_user@cern.ch
+    - profile: {}
+  experiment: CMS
+  files:
+    - bucket: 1e72bd32-c2e3-403e-9c01-2faa0b149999
+      checksum: None
+      key: test-user_test-repo_test-branch.tar.gz
+      size: 0
+      source_url: https://gitlab.cern.ch/test-user/test-repo/tree/test-branch
+      version_id: ffe05069-8f2a-49da-8617-957b05614723
+  id: 055c24bad4ee4d6fa44a9432b49fe77f
+  draft_id: 055c24bad4ee4d6fa44a9432b49fe77e
+  is_owner: true
+  labels: []
+  links:
+    html: https://analysispreservation.cern.ch/published/055c24bad4ee4d6fa44a9432b49fe77f
+    self: https://analysispreservation.cern.ch/api/records/055c24bad4ee4d6fa44a9432b49fe77f
+  metadata: {}
+  schema:
+    - fullname: CMS Analysis
+      name: cms-analysis
+      version: 0.0.1
+  schemas: {}
+  type: record
+  revision: 2
+  status: published
+  updated: 2019-08-29T08:36:38.114Z

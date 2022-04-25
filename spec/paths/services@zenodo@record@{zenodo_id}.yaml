@@ -1,7 +1,15 @@
+parameters:
+  - name: zenodo_id
+    in: path
+    description: Zenodo ID of a zenodo record
+    schema:
+      type: string
+    required: true
 get:
-  summary: Get list of services
   tags:
     - Services
+  summary: Get a Zenodo record
+  operationId: getZenodoRecord
   responses:
     '200':
       description: OK
@@ -13,7 +21,6 @@ get:
       content:
         application/json:
           schema:
-            type: string
-          examples:
-            response:
-              value: Hello world!
+            type: object
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

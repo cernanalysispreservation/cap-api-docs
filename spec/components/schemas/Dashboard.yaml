@@ -1,0 +1,19 @@
+title: Dasboard data resource schema
+type: object
+properties:
+  drafts:
+    type: object
+  published:
+    type: object
+  user_count:
+    type: integer
+  user_drafts:
+    type: object
+  user_draft_count:
+    type: integer
+  user_published:
+    type: object
+  user_published_count:
+    type: integer
+  user_workflows:
+    type: object

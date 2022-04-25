@@ -1,0 +1,11 @@
+title: Metadata of the logged in User
+type: object
+  properties:
+    deposit_groups:
+      type: object
+    email:
+      $ref: '#/components/schemas/Email'
+    id:
+      type: integer
+    profile:
+      type: object

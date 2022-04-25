@@ -1,0 +1,9 @@
+value:
+  latest:
+    links: {}
+    version: 0.0.2
+  versions:
+    - links: {}
+      version: 0.0.1
+    - links: {}
+      version: 0.0.2 

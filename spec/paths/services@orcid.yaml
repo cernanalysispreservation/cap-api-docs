@@ -1,0 +1,40 @@
+get:
+  summary: Get ORCID for given name
+  description: >-
+    Take the name and give the associated ORCID.
+
+    > Exact match will return ORCID.
+  tags:
+    - Services
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name: string
+        examples:
+          samplePayload:
+            value:
+              name: "First Second"
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              orcid:
+                type: string
+          examples:
+            sampleResponse:
+              value:
+                orcid: 0000-0002-4048-7584
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

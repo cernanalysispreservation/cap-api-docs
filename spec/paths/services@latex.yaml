@@ -1,0 +1,32 @@
+post:
+  summary: Create a Latex file
+  tags:
+    - Services
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            paths:
+              type: array
+              description: List of dataset paths
+              items:
+                type: string
+            title:
+              type: string
+              description: Title of Latex file
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

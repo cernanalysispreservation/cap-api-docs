@@ -1,0 +1,48 @@
+parameters:
+  - name: orcid
+    in: path
+    description: ORCID identifier
+    schema:
+      type: string
+      format: uuid
+    required: true
+get:
+  summary: Get ORCID data for a given identifier.
+  tags:
+    - Services
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              activities-summary:
+                type: object
+              history:
+                type: object
+              orcid-identifier:
+                type: object
+              path:
+                type: string
+              person:
+                type: object
+              preferences:
+                type: object
+          examples:
+            sampleResponse:
+              value:
+                activities-summary: {}
+                history: {}
+                orcid-identifier: {}
+                path: {}
+                person: {}
+                preferences: {}
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

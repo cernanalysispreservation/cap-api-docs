@@ -11,12 +11,25 @@ post:
     - Deposits
   summary: Add/remove permissions
   description: |
-    Add or remove `user` and `e-group` access to the resource
-    > You need to have 'admin' rights for the deposit to change permissions
+    Add or remove `user` and `e-group` access for a resource.
+
+    > You need to have admin rights for the deposit resource to be able to change permissions.
   operationId: permissionsDeposit
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PermissionRequest'
+        examples:
+          permissionRequest:
+            $ref: '#/components/examples/permissionRequest'
+    description: |
+      A JSON object that will replace the `metadata` field of the resource
+      > It should validate against the specified `$schema` of the resource
+    required: true
   responses:
-    '200':
-      description: OK
+    '201':
+      description: Created
       headers:
         X-Rate-Limit:
           description: calls per hour allowed by the user

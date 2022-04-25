@@ -6,6 +6,11 @@ parameters:
       type: string
       format: uuid
     required: true
+  - name: file_name
+    in: path
+    description: File name of the local file. Required for `PUT`.
+    schema:
+      type: string
 get:
   summary: Get bucket resource by ID
   tags:
@@ -20,10 +25,43 @@ get:
           $ref: '#/components/headers/ExpiresAfter'
       content:
         application/json:
-          schema:
-            type: string
+          type: object
           examples:
-            response:
-              value: Hello world!
+            bucketResponse:
+              $ref: '#/components/examples/bucketResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
+put:
+  summary: Upload local files.
+  tags:
+    - Files
+  description: |
+    Upload files using `bucket_id` and `file name`.
+
+    > You need to have at least `read` access.
+  requestBody:
+    content:
+      application/octet-stream:
+        schema:
+          type: object
+          format: binary
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FileLocalUploadResponse'
+          examples:
+            uploadFileExample:
+              $ref: '#/components/examples/FileLocalUploadResponse'
     '401':
       $ref: '#/components/responses/NotAuthorized'

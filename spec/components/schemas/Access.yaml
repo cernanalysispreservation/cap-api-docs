@@ -1,0 +1,15 @@
+type: object
+properties:
+  roles:
+    type: array
+    description: Egroups with access
+    items:
+      $ref: '#/components/schemas/Email'
+  users:
+    type: array
+    description: Users with access
+    items:
+      email:
+        $ref: '#/components/schemas/Email'
+      profile:
+        $ref: '#/components/schemas/User'

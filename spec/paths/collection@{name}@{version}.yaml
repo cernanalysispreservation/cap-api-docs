@@ -1,0 +1,18 @@
+get:
+  tags:
+    - User
+  summary: Get the data related to a collection by schema name and version
+  operationId: getCollectionByName
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Collection'
+          example:
+            $ref: '#/components/examples/collectionResponse'
+    '403':
+      description: Forbidden
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

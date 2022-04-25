@@ -1,0 +1,47 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit/Draft ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+post:
+  tags:
+    - Deposits
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            subscriber_id:
+              type: integer
+          required:
+            - subscriber_id
+        examples:
+          request:
+            value:
+              subscriber_id: 1
+  summary: Disconnect a webhook
+  description: |
+    Disconnect webhook for repostiories.
+
+    > You need to have at least `update` access.
+  operationId: disconnectWebhook
+  responses:
+    '201':
+      description: Created
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositResponse'
+          example:
+            $ref: '#/components/examples/depositResponse'
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

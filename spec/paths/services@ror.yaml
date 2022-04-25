@@ -1,0 +1,42 @@
+get:
+  summary: Get ROR results by query
+  tags:
+    - Services
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            query: string
+        examples:
+          samplePayload:
+            value:
+              query: 'tilburg'
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              acronyms:
+                type: array
+              name:
+                type: string
+              ror_org_id:
+                type: string
+          examples:
+            sampleResponse:
+              value:
+                acronyms: ['TiU']
+                name: Tilburg University
+                ror_org_id: 04b8v1s79
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

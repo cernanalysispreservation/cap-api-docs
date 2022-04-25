@@ -1,0 +1,33 @@
+parameters:
+  - name: depid
+    in: path
+    description: Deposit ID
+    schema:
+      type: string
+      format: uuid
+    required: true
+  - name: file_name
+    in: path
+    description: Name of the **ADL** file already uploaded in the deposit
+    schema:
+      type: string
+    required: true
+get:
+  summary: Parse ADL file present in the deposit
+  description: Ingest the ADL file and parse it to JSON.
+  tags:
+    - Services
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

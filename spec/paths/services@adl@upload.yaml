@@ -1,0 +1,25 @@
+post:
+  summary: Parse ADL file by uploading an ADL file
+  description: Ingest the ADL file and parse it to JSON.
+  tags:
+    - Services
+  requestBody:
+    content:
+      application/octet-stream:
+        schema:
+          type: object
+          format: binary
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+    '401':
+      $ref: '#/components/responses/NotAuthorized'

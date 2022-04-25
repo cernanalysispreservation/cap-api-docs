@@ -1,0 +1,35 @@
+description: Files associated with a deposit
+type: object
+properties:
+  delete_marker:
+    type: boolean
+  size:
+    type: string
+    description: The size of the file in bytes
+  links:
+    type: object
+    properties:
+      self:
+        type: string  
+      version:
+        type: string
+      uploads:
+        type: string
+  created:
+    type: string
+  updated:
+    type: string
+  tags:
+    type: object
+  version_id:
+    type: string
+  is_head:
+    type: boolean
+  key:
+    type: string
+    decription: File name
+  checksum:
+    type: string
+    description: The SHA1 of the file
+  mimetype:
+    type: string

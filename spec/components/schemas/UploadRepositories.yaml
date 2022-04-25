@@ -1,0 +1,43 @@
+description: Upload Resource
+type: object
+oneOf:
+  - title: Upload snapshot of repository
+    type: object
+    properties:
+      event_type:
+        type: string
+      url:
+        type: string
+        description: The URL of the repository for the snapshot
+      webhook:
+        type: boolean
+    required:
+      - url
+  - title: Upload snapshot of a file from repository
+    properties:
+      event_type:
+        type: string
+      url:
+        type: string
+        description: The URL path of the file in repository 
+      webhook:
+        type: boolean
+    required:
+      - url
+  - title: Create a webhook and upload a snapshot when the specified event happens
+    type: object
+    properties:
+      event_type:
+        type: string
+        enum:
+          - release
+          - push
+      url:
+        type: string
+        description: The URL of the repository
+      webhook:
+        type: boolean
+    required:
+      - url
+      - webhook
+      - event_type

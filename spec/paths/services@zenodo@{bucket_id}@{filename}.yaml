@@ -1,0 +1,39 @@
+parameters:
+  - name: bucket_id
+    in: path
+    description: Bucket ID of a deposit resource.
+    schema:
+      type: string
+    required: true
+  - name: filename
+    in: path
+    description: Name of a file already uploaded in the deposit
+    schema:
+      type: string
+    required: true
+get:
+  summary: Upload to Zenodo
+  tags:
+    - Services
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          $ref: '#/components/headers/RateLimit'
+        X-Expires-After:
+          $ref: '#/components/headers/ExpiresAfter'
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: Status of file upload
+          examples:
+            sampleResponse:
+              value:
+                status: 200
+    '401':
+      $ref: '#/components/responses/NotAuthorized'
