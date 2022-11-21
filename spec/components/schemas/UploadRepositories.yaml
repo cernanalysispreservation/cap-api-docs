@@ -1,0 +1,39 @@
+description: Upload Resource
+type: object
+oneOf:
+  - title: Create Repository as user and attach to deposit
+    type: object
+    properties:
+      webhook:
+        type: string
+        enum:
+          - repo_create
+      url:
+        type: string
+        description: The git url that can point to a repository or specific file.
+    required:
+      - url
+      - webhook
+  - title: Attach Repository to deposit
+    properties:
+      webhook:
+        type: string
+        enum:
+          - None
+          - repo_download_attach
+      url:
+        type: string
+        description: The git url that can point to a repository or specific file.
+    required:
+      - url
+      - webhook
+  - title: Create Repository from Schema configuration and attach to deposit
+    type: object
+    properties:
+      webhook:
+        type: string
+        enum:
+          - repo_create_default
+    required:
+      - url
+      - webhook
